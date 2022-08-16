@@ -1,12 +1,18 @@
-import logo from './logo.svg';
+import {useEffect, useContext} from 'react';
+import {Routes, Route, Navigate} from 'react-router-dom'
+import axios from 'axios'
 import './App.css';
+import Title from './components/Title';
+import SearchBar from './components/SearchBar';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      
+        <Title />
+        <SearchBar />
         <p>Hello World</p>
-      </header>
+      
     </div>
   );
 }
