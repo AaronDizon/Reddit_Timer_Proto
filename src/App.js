@@ -18,8 +18,7 @@ function App() {
       
         <Title />
         <SearchBar />
-        {infoSearchStatus === false ? <p>Hello</p> : <Info />
-        }
+        
       
     </div> 
   );

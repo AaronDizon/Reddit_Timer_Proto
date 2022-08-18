@@ -3,10 +3,14 @@ import { SearchContext } from '../context/SearchContext'
 import styles from '../Styling/Info.module.css'
 
 const Info = () => {
+
+    const {infoSearchedState} = useContext(SearchContext)
+    const [ infoSearched, setInfoSearched] = infoSearchedState
+
   return (
     <div className={styles.infoContainer}>
-        <div className={styles.title}>Info</div>
-        <p className={styles.information}>This is information</p>
+        <p className={styles.title}>Info</p>
+        <p className={styles.information}>{infoSearched}</p>
     </div>
   )
 }
