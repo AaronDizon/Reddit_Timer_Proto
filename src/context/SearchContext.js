@@ -4,10 +4,15 @@ const  SearchContext = createContext()
 
 const SearchProvider = ({children}) => {
 
-    const [infoSearched, setInfoSearched] = useState(false);
-    
+    const [infoSearchStatus, setInfoSearchStatus] = useState(false);
+    const [infoSearched, setInfoSearched] = useState('')
+    const [test, setTest] = useState('test')
+
     const state = {
-        infoState: [infoSearched, setInfoSearched]
+        infoSearchStatusState: [infoSearchStatus, setInfoSearchStatus],
+        infoSearchedState: [infoSearched, setInfoSearched], 
+        testState: [test, setTest]
+    
     }
 
     return (
