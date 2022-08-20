@@ -5,7 +5,7 @@ const  SearchContext = createContext()
 const SearchProvider = ({children}) => {
 
     const [infoSearchStatus, setInfoSearchStatus] = useState(false);
-    const [infoSearched, setInfoSearched] = useState('')
+    const [infoSearched, setInfoSearched] = useState([])
     const [test, setTest] = useState('test')
 
     const state = {
