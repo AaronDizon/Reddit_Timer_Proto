@@ -26,9 +26,11 @@ const SearchBar = () => {
                 await axios.get(`https://www.reddit.com/r/${description}.json?limit=${postsPerRequest}&after=${tempString}`)
                     .then((response) => {
                         // console.log(response.data.data)
-                        console.log(response.data.data.children)
+                        console.log(response.data.data.children[0].data)
+                        for (let j = 0; j < 100; j++) {
+                            setInfoSearched(...infoSearched, response.data.data.children[j].data)
+                        }
                         tempString = response.data.data.after
-                        setInfoSearched()
                     })
             }
             
