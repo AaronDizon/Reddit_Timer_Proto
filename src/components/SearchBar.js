@@ -27,9 +27,18 @@ const SearchBar = () => {
                     .then((response) => {
                         // console.log(response.data.data)
                         console.log(response.data.data.children[0].data)
-                        for (let j = 0; j < 100; j++) {
-                            setInfoSearched(...infoSearched, response.data.data.children[j].data)
+                        let {author, selftext, created_utc, url_overridden_by_dest} = response.data.data.children[0].data
+                        let tempObj = {
+                            author: author,
+                            post: selftext,
+                            time: created_utc,
+                            image: url_overridden_by_dest
                         }
+                        console.log(tempObj)
+                        
+                        // for (let j = 0; j < 100; j++) {
+                        //     // setInfoSearched(...infoSearched, response.data.data.children[j].data)
+                        // }
                         tempString = response.data.data.after
                     })
             }
