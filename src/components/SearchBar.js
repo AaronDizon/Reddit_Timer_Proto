@@ -30,19 +30,18 @@ const SearchBar = () => {
                     .then((response) => {
                         // console.log(response.data.data)
                         //console.log(response.data.data.children[0].data)
-                        let {author, selftext, created_utc, url_overridden_by_dest} = response.data.data.children[0].data
-                        let tempObj = {
-                            author: author,
-                            post: selftext,
-                            time: created_utc,
-                            image: url_overridden_by_dest
+                        for (let j = 0; j < 100; j++) {
+                            let {author, selftext, created_utc, url_overridden_by_dest} = response.data.data.children[j].data
+                            let tempObj = {
+                                author: author,
+                                post: selftext,
+                                time: created_utc,
+                                image: url_overridden_by_dest
+                            }
+                            infoArray = [...infoArray, tempObj]
+                            console.log(infoArray)
                         }
-                        infoArray = [...infoArray, tempObj]
-                        console.log(infoArray)
-                
-                        // console.log(infoArray)
-                        // setData([infoArray])
-                        // console.log(data)
+
                         // for (let j = 0; j < 100; j++) {
                         //     // setInfoSearched(...infoSearched, response.data.data.children[j].data)
                         // }
@@ -51,6 +50,7 @@ const SearchBar = () => {
             }
             setData(infoArray)
             console.log(data)
+            setLoaded(true)
         } catch (error) {
             console.log(error)
         }
@@ -60,7 +60,6 @@ const SearchBar = () => {
         e.preventDefault()
         getInfo()
         setInfoSearchStatus(true)
-        setLoaded(true)
     }
 
   return (
@@ -70,7 +69,7 @@ const SearchBar = () => {
             <input value={description} onChange={(e)=>{setDescription(e.target.value)}}/>
             <input className={styles.submitButton} type='submit' value= 'Post' />
             {infoSearchStatus === false ? <p>Hello</p> : 
-                loaded ===false? 
+                loaded === false? 
                     <p>loading...</p> :
                     <Info />
             }
