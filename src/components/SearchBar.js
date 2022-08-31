@@ -12,21 +12,24 @@ const SearchBar = () => {
 
     const [description, setDescription] = useState('')
     const [loaded, setLoaded] = useState(false)
+    const [data, setData] = useState([])
 
     const postsPerRequest = 100
     const maxPostsToFetch = 500
     const maxRequests = maxPostsToFetch/ postsPerRequest
 
+    let infoArray = []
+
     const getInfo = async (e) => {
         try {
             let tempString = ''
-            setInfoSearched([])
+
             for(let i = 0; i < maxRequests; i++){
                 console.log(tempString)
                 await axios.get(`https://www.reddit.com/r/${description}.json?limit=${postsPerRequest}&after=${tempString}`)
                     .then((response) => {
                         // console.log(response.data.data)
-                        console.log(response.data.data.children[0].data)
+                        //console.log(response.data.data.children[0].data)
                         let {author, selftext, created_utc, url_overridden_by_dest} = response.data.data.children[0].data
                         let tempObj = {
                             author: author,
@@ -34,15 +37,20 @@ const SearchBar = () => {
                             time: created_utc,
                             image: url_overridden_by_dest
                         }
-                        console.log(tempObj)
-                        
+                        infoArray = [...infoArray, tempObj]
+                        console.log(infoArray)
+                
+                        // console.log(infoArray)
+                        // setData([infoArray])
+                        // console.log(data)
                         // for (let j = 0; j < 100; j++) {
                         //     // setInfoSearched(...infoSearched, response.data.data.children[j].data)
                         // }
                         tempString = response.data.data.after
                     })
             }
-            
+            setData(infoArray)
+            console.log(data)
         } catch (error) {
             console.log(error)
         }
