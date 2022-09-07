@@ -35,17 +35,17 @@ const SearchBar = () => {
                             let tempObj = {
                                 author: author,
                                 post: selftext,
-                                time: created_utc,
+                                time: new Date(created_utc),
                                 image: url_overridden_by_dest
                             }
                             infoArray = [...infoArray, tempObj]
-                            console.log(infoArray)
                         }
-
+                        
                         // for (let j = 0; j < 100; j++) {
-                        //     // setInfoSearched(...infoSearched, response.data.data.children[j].data)
-                        // }
-                        tempString = response.data.data.after
+                            //     // setInfoSearched(...infoSearched, response.data.data.children[j].data)
+                            // }
+                            tempString = response.data.data.after
+                            console.log(infoArray)
                     })
             }
             setData(infoArray)
