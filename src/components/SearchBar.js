@@ -35,10 +35,11 @@ const SearchBar = () => {
                             let tempObj = {
                                 author: author,
                                 post: selftext,
-                                time: new Date(created_utc),
+                                time: new Date(created_utc * 1000),
                                 image: url_overridden_by_dest
                             }
                             infoArray = [...infoArray, tempObj]
+                            setData(tempObj)
                         }
                         
                         // for (let j = 0; j < 100; j++) {
@@ -46,9 +47,9 @@ const SearchBar = () => {
                             // }
                             tempString = response.data.data.after
                             console.log(infoArray)
+                            
                     })
             }
-            setData(infoArray)
             console.log(data)
             setLoaded(true)
         } catch (error) {
@@ -71,7 +72,7 @@ const SearchBar = () => {
             {infoSearchStatus === false ? <p>Hello</p> : 
                 loaded === false? 
                     <p>loading...</p> :
-                    <Info />
+                    <Info data={data}/>
             }
         </form>
 
