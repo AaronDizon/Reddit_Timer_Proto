@@ -14,6 +14,7 @@ const Info = (props) => {
       getHours()
     }, [])
 
+    //function to get which day the post was created
     const getDay = () => {
       const dataTime = data.time.toString()
       console.log(dataTime)
@@ -25,6 +26,7 @@ const Info = (props) => {
       console.log(joinedDay)
     }
 
+    //function to get the exact time the post was created 
     const getHours = () => {
       const dataTime = data.time.toString()
       //console.log(dataTime)
@@ -34,6 +36,16 @@ const Info = (props) => {
       const joinedDay= time.join("")
       console.log(joinedDay)
     }
+
+    // function that will create the object for each time slot and sort the data respectively
+    // For each iteration of the loop, 
+      //call the getDay function 
+      //call the getHour function 
+      //create a temp variable for the the timestamp in which the post occurs in
+      //Create an if statement that either 
+        //creates a new array that the time of the post is in 
+        //adds to an already existing array on the timeframe 
+  
 
   return (
     <div className={styles.infoContainer}>
