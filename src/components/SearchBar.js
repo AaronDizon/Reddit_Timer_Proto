@@ -26,31 +26,32 @@ const SearchBar = () => {
 
             for(let i = 0; i < maxRequests; i++){
                 console.log(tempString)
-                await axios.get(`https://www.reddit.com/r/${description}.json?limit=${postsPerRequest}&after=${tempString}`)
+                await axios.get(`https://www.reddit.com/r/${description}/top/.json?t=year&limit=${postsPerRequest}&after=${tempString}`)
                     .then((response) => {
-                        // console.log(response.data.data)
+                        console.log(response.data.data)
                         //console.log(response.data.data.children[0].data)
-                        for (let j = 0; j < 100; j++) {
-                            let {author, selftext, created_utc, url_overridden_by_dest} = response.data.data.children[j].data
+                        for (let j = 0; j < 25; j++) {
+                            let {author, title, selftext, created_utc, url_overridden_by_dest} = response.data.data.children[j].data
                             let tempObj = {
                                 author: author,
+                                title: title,
                                 post: selftext,
                                 time: new Date(created_utc * 1000),
                                 image: url_overridden_by_dest
                             }
                             infoArray = [...infoArray, tempObj]
-                            setData(tempObj)
+                            setData(infoArray)
                         }
                         
                         // for (let j = 0; j < 100; j++) {
                             //     // setInfoSearched(...infoSearched, response.data.data.children[j].data)
                             // }
                             tempString = response.data.data.after
-                            console.log(infoArray)
+                            //console.log(infoArray)
                             
                     })
             }
-            console.log(data)
+            //console.log(data)
             setLoaded(true)
         } catch (error) {
             console.log(error)

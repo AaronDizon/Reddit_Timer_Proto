@@ -10,13 +10,12 @@ const Info = (props) => {
     const [data, setData] = useState(props.data)
     
     useEffect(()=> {
-      getDay()
-      getHours()
+      parseData(data)
     }, [])
 
     //function to get which day the post was created
-    const getDay = () => {
-      const dataTime = data.time.toString()
+    const getDay = (param) => {
+      const dataTime = param.time.toString()
       console.log(dataTime)
       const splitTime = dataTime.split("")
       console.log(splitTime)
@@ -27,8 +26,8 @@ const Info = (props) => {
     }
 
     //function to get the exact time the post was created 
-    const getHours = () => {
-      const dataTime = data.time.toString()
+    const getHours = (param) => {
+      const dataTime = param.time.toString()
       //console.log(dataTime)
       const splitTime = dataTime.split("")
       //console.log(splitTime)
@@ -38,14 +37,22 @@ const Info = (props) => {
     }
 
     // function that will create the object for each time slot and sort the data respectively
-    // For each iteration of the loop, 
+    const parseData = () => {
+
+      // For each iteration of the loop, 
+      for (let i = 0; i < data.length; ++i) {
+        getDay(data[i])
+        getHours(data[i])
+      }
       //call the getDay function 
       //call the getHour function 
-      //create a temp variable for the the timestamp in which the post occurs in
+      //create a temp timegap variable for the the timestamp in which the post occurs in
       //Create an if statement that either 
-        //creates a new array that the time of the post is in 
-        //adds to an already existing array on the timeframe 
-  
+      //creates a new array that the time of the post is in 
+      //adds to an already existing array on the timeframe 
+      // NOTE: the array timeframe will be named by the combination of the dayand the temp timegap variable
+      
+    }
 
   return (
     <div className={styles.infoContainer}>
