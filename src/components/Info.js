@@ -11,6 +11,18 @@ const Info = (props) => {
     
     useEffect(()=> {
       parseData(data)
+      let objectOfArrays = {}
+
+      objectOfArrays.subArray1 = []
+      objectOfArrays.subArray2 = []
+
+      console.log(objectOfArrays)
+      if (objectOfArrays.subArray1) {
+        console.log(true)
+      }
+      else {
+        console.log(false)
+      }
     }, [])
 
     //function to get which day the post was created
@@ -41,16 +53,16 @@ const Info = (props) => {
 
       // For each iteration of the loop, 
       for (let i = 0; i < data.length; ++i) {
+        //call the getDay function 
         getDay(data[i])
+        //call the getHour function 
         getHours(data[i])
+        //create a temp timegap variable for the the timestamp in which the post occurs in
+        //Create an if statement that either 
+        //creates a new array that the time of the post is in 
+        //adds to an already existing array on the timeframe 
+        // NOTE: the array timeframe will be named by the combination of the dayand the temp timegap variable
       }
-      //call the getDay function 
-      //call the getHour function 
-      //create a temp timegap variable for the the timestamp in which the post occurs in
-      //Create an if statement that either 
-      //creates a new array that the time of the post is in 
-      //adds to an already existing array on the timeframe 
-      // NOTE: the array timeframe will be named by the combination of the dayand the temp timegap variable
       
     }
 
