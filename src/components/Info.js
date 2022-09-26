@@ -8,21 +8,126 @@ const Info = (props) => {
     const [ infoSearched, setInfoSearched] = infoSearchedState
 
     const [data, setData] = useState(props.data)
+
+    const chartObject = {
+      monZeroToTwoHundred: [],
+      monTwoToFourHundred: [],
+      monFourToSixHundred: [],
+      monSixToEightHundred: [],
+      monEightToTenHundred: [],
+      monTenToTwelveHundred: [],
+      monTwelveToFourteenHundred: [],
+      monFourteenToSixteenHundred: [],
+      monSixteenToEighteenHundred: [],
+      monEighteenToTwentyHundred: [],
+      monTwentyToTwentytwoHundred: [],
+      monTwentytwoToZeroHundred: [],
+
+      tuesZeroToTwoHundred: [],
+      tuesTwoToFourHundred: [],
+      tuesFourToSixHundred: [],
+      tuesSixToEightHundred: [],
+      tuesEightToTenHundred: [],
+      tuesTenToTwelveHundred: [],
+      tuesTwelveToFourteenHundred: [],
+      tuesFourteenToSixteenHundred: [],
+      tuesSixteenToEighteenHundred: [],
+      tuesEighteenToTwentyHundred: [],
+      tuesTwentyToTwentytwoHundred: [],
+      tuesTwentytwoToZeroHundred: [],
+
+      wedZeroToTwoHundred: [],
+      wedTwoToFourHundred: [],
+      wedFourToSixHundred: [],
+      wedSixToEightHundred: [],
+      wedEightToTenHundred: [],
+      wedTenToTwelveHundred: [],
+      wedTwelveToFourteenHundred: [],
+      wedFourteenToSixteenHundred: [],
+      wedSixteenToEighteenHundred: [],
+      wedEighteenToTwentyHundred: [],
+      wedTwentyToTwentytwoHundred: [],
+      wedTwentytwoToZeroHundred: [],
+
+      thursZeroToTwoHundred: [],
+      thursTwoToFourHundred: [],
+      thursFourToSixHundred: [],
+      thursSixToEightHundred: [],
+      thursEightToTenHundred: [],
+      thursTenToTwelveHundred: [],
+      thursTwelveToFourteenHundred: [],
+      thursFourteenToSixteenHundred: [],
+      thursSixteenToEighteenHundred: [],
+      thursEighteenToTwentyHundred: [],
+      thursTwentyToTwentytwoHundred: [],
+      thursTwentytwoToZeroHundred: [],
+
+      friZeroToTwoHundred: [],
+      friTwoToFourHundred: [],
+      friFourToSixHundred: [],
+      friSixToEightHundred: [],
+      friEightToTenHundred: [],
+      friTenToTwelveHundred: [],
+      friTwelveToFourteenHundred: [],
+      friFourteenToSixteenHundred: [],
+      friSixteenToEighteenHundred: [],
+      friEighteenToTwentyHundred: [],
+      friTwentyToTwentytwoHundred: [],
+      friTwentytwoToZeroHundred: [],
+
+      satZeroToTwoHundred: [],
+      satTwoToFourHundred: [],
+      satFourToSixHundred: [],
+      satSixToEightHundred: [],
+      satEightToTenHundred: [],
+      satTenToTwelveHundred: [],
+      satTwelveToFourteenHundred: [],
+      satFourteenToSixteenHundred: [],
+      satSixteenToEighteenHundred: [],
+      satEighteenToTwentyHundred: [],
+      satTwentyToTwentytwoHundred: [],
+      satTwentytwoToZeroHundred: [],
+
+      sunZeroToTwoHundred: [],
+      sunTwoToFourHundred: [],
+      sunFourToSixHundred: [],
+      sunSixToEightHundred: [],
+      sunEightToTenHundred: [],
+      sunTenToTwelveHundred: [],
+      sunTwelveToFourteenHundred: [],
+      sunFourteenToSixteenHundred: [],
+      sunSixteenToEighteenHundred: [],
+      sunEighteenToTwentyHundred: [],
+      sunTwentyToTwentytwoHundred: [],
+      sunTwentytwoToZeroHundred: [],
+
+    }
     
     useEffect(()=> {
       parseData(data)
       let objectOfArrays = {}
 
-      objectOfArrays.subArray1 = []
-      objectOfArrays.subArray2 = []
+      objectOfArrays.subArray1 = [1, 2, 3]
+      objectOfArrays.subArray2 = [4, 5, 6]
+      objectOfArrays.subArray3 = [7, 8, 9]
 
-      console.log(objectOfArrays)
+      objectOfArrays.subArray3.push(10)
+      console.log(objectOfArrays.subArray3)
+      // console.log(objectOfArrays)
       if (objectOfArrays.subArray1) {
         console.log(true)
       }
       else {
         console.log(false)
       }
+      let objLength = Object.keys(objectOfArrays)
+      console.log(objLength.length)
+     
+
+      for (let key in objectOfArrays) {
+        console.log(key)
+      }
+
     }, [])
 
     //function to get which day the post was created
