@@ -59,6 +59,7 @@ const SearchBar = () => {
     }
 
     const postForm = (e) => {
+        setLoaded(false)
         e.preventDefault()
         getInfo()
         setInfoSearchStatus(true)
