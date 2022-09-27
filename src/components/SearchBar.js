@@ -28,7 +28,7 @@ const SearchBar = () => {
                 console.log(tempString)
                 await axios.get(`https://www.reddit.com/r/${description}/top/.json?t=year&limit=${postsPerRequest}&after=${tempString}`)
                     .then((response) => {
-                        console.log(response.data.data)
+                        //console.log(response.data.data)
                         //console.log(response.data.data.children[0].data)
                         for (let j = 0; j < 25; j++) {
                             let {author, title, selftext, created_utc, url_overridden_by_dest} = response.data.data.children[j].data

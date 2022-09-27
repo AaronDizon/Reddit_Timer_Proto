@@ -8,85 +8,9 @@ const Info = (props) => {
     const [ infoSearched, setInfoSearched] = infoSearchedState
 
     const [data, setData] = useState(props.data)
+    const [parsedData, setParsedData] = useState()
 
     const chartObject = {
-      monZeroToTwoHundred: [],
-      monTwoToFourHundred: [],
-      monFourToSixHundred: [],
-      monSixToEightHundred: [],
-      monEightToTenHundred: [],
-      monTenToTwelveHundred: [],
-      monTwelveToFourteenHundred: [],
-      monFourteenToSixteenHundred: [],
-      monSixteenToEighteenHundred: [],
-      monEighteenToTwentyHundred: [],
-      monTwentyToTwentytwoHundred: [],
-      monTwentytwoToZeroHundred: [],
-
-      tuesZeroToTwoHundred: [],
-      tuesTwoToFourHundred: [],
-      tuesFourToSixHundred: [],
-      tuesSixToEightHundred: [],
-      tuesEightToTenHundred: [],
-      tuesTenToTwelveHundred: [],
-      tuesTwelveToFourteenHundred: [],
-      tuesFourteenToSixteenHundred: [],
-      tuesSixteenToEighteenHundred: [],
-      tuesEighteenToTwentyHundred: [],
-      tuesTwentyToTwentytwoHundred: [],
-      tuesTwentytwoToZeroHundred: [],
-
-      wedZeroToTwoHundred: [],
-      wedTwoToFourHundred: [],
-      wedFourToSixHundred: [],
-      wedSixToEightHundred: [],
-      wedEightToTenHundred: [],
-      wedTenToTwelveHundred: [],
-      wedTwelveToFourteenHundred: [],
-      wedFourteenToSixteenHundred: [],
-      wedSixteenToEighteenHundred: [],
-      wedEighteenToTwentyHundred: [],
-      wedTwentyToTwentytwoHundred: [],
-      wedTwentytwoToZeroHundred: [],
-
-      thursZeroToTwoHundred: [],
-      thursTwoToFourHundred: [],
-      thursFourToSixHundred: [],
-      thursSixToEightHundred: [],
-      thursEightToTenHundred: [],
-      thursTenToTwelveHundred: [],
-      thursTwelveToFourteenHundred: [],
-      thursFourteenToSixteenHundred: [],
-      thursSixteenToEighteenHundred: [],
-      thursEighteenToTwentyHundred: [],
-      thursTwentyToTwentytwoHundred: [],
-      thursTwentytwoToZeroHundred: [],
-
-      friZeroToTwoHundred: [],
-      friTwoToFourHundred: [],
-      friFourToSixHundred: [],
-      friSixToEightHundred: [],
-      friEightToTenHundred: [],
-      friTenToTwelveHundred: [],
-      friTwelveToFourteenHundred: [],
-      friFourteenToSixteenHundred: [],
-      friSixteenToEighteenHundred: [],
-      friEighteenToTwentyHundred: [],
-      friTwentyToTwentytwoHundred: [],
-      friTwentytwoToZeroHundred: [],
-
-      satZeroToTwoHundred: [],
-      satTwoToFourHundred: [],
-      satFourToSixHundred: [],
-      satSixToEightHundred: [],
-      satEightToTenHundred: [],
-      satTenToTwelveHundred: [],
-      satTwelveToFourteenHundred: [],
-      satFourteenToSixteenHundred: [],
-      satSixteenToEighteenHundred: [],
-      satEighteenToTwentyHundred: [],
-      satTwentyToTwentytwoHundred: [],
-      satTwentytwoToZeroHundred: [],
 
       sunZeroToTwoHundred: [],
       sunTwoToFourHundred: [],
@@ -99,47 +23,126 @@ const Info = (props) => {
       sunSixteenToEighteenHundred: [],
       sunEighteenToTwentyHundred: [],
       sunTwentyToTwentytwoHundred: [],
-      sunTwentytwoToZeroHundred: [],
+      sunTwentytwoToTwentyfourHundred: [],
+
+      monZeroToTwoHundred: [],
+      monTwoToFourHundred: [],
+      monFourToSixHundred: [],
+      monSixToEightHundred: [],
+      monEightToTenHundred: [],
+      monTenToTwelveHundred: [],
+      monTwelveToFourteenHundred: [],
+      monFourteenToSixteenHundred: [],
+      monSixteenToEighteenHundred: [],
+      monEighteenToTwentyHundred: [],
+      monTwentyToTwentytwoHundred: [],
+      monTwentytwoToTwentyfourHundred: [],
+
+      tueZeroToTwoHundred: [],
+      tueTwoToFourHundred: [],
+      tueFourToSixHundred: [],
+      tueSixToEightHundred: [],
+      tueEightToTenHundred: [],
+      tueTenToTwelveHundred: [],
+      tueTwelveToFourteenHundred: [],
+      tueFourteenToSixteenHundred: [],
+      tueSixteenToEighteenHundred: [],
+      tueEighteenToTwentyHundred: [],
+      tueTwentyToTwentytwoHundred: [],
+      tueTwentytwoToTwentyfourHundred: [],
+
+      wedZeroToTwoHundred: [],
+      wedTwoToFourHundred: [],
+      wedFourToSixHundred: [],
+      wedSixToEightHundred: [],
+      wedEightToTenHundred: [],
+      wedTenToTwelveHundred: [],
+      wedTwelveToFourteenHundred: [],
+      wedFourteenToSixteenHundred: [],
+      wedSixteenToEighteenHundred: [],
+      wedEighteenToTwentyHundred: [],
+      wedTwentyToTwentytwoHundred: [],
+      wedTwentytwoToTwentyfourHundred: [],
+
+      thuZeroToTwoHundred: [],
+      thuTwoToFourHundred: [],
+      thuFourToSixHundred: [],
+      thuSixToEightHundred: [],
+      thuEightToTenHundred: [],
+      thuTenToTwelveHundred: [],
+      thuTwelveToFourteenHundred: [],
+      thuFourteenToSixteenHundred: [],
+      thuSixteenToEighteenHundred: [],
+      thuEighteenToTwentyHundred: [],
+      thuTwentyToTwentytwoHundred: [],
+      thuTwentytwoToTwentyfourHundred: [],
+
+      friZeroToTwoHundred: [],
+      friTwoToFourHundred: [],
+      friFourToSixHundred: [],
+      friSixToEightHundred: [],
+      friEightToTenHundred: [],
+      friTenToTwelveHundred: [],
+      friTwelveToFourteenHundred: [],
+      friFourteenToSixteenHundred: [],
+      friSixteenToEighteenHundred: [],
+      friEighteenToTwentyHundred: [],
+      friTwentyToTwentytwoHundred: [],
+      friTwentytwoToTwentyfourHundred: [],
+
+      satZeroToTwoHundred: [],
+      satTwoToFourHundred: [],
+      satFourToSixHundred: [],
+      satSixToEightHundred: [],
+      satEightToTenHundred: [],
+      satTenToTwelveHundred: [],
+      satTwelveToFourteenHundred: [],
+      satFourteenToSixteenHundred: [],
+      satSixteenToEighteenHundred: [],
+      satEighteenToTwentyHundred: [],
+      satTwentyToTwentytwoHundred: [],
+      satTwentytwoToTwentyfourHundred: []
 
     }
     
     useEffect(()=> {
       parseData(data)
-      let objectOfArrays = {}
+      // let objectOfArrays = {}
 
-      objectOfArrays.subArray1 = [1, 2, 3]
-      objectOfArrays.subArray2 = [4, 5, 6]
-      objectOfArrays.subArray3 = [7, 8, 9]
+      // objectOfArrays.subArray1 = [1, 2, 3]
+      // objectOfArrays.subArray2 = [4, 5, 6]
+      // objectOfArrays.subArray3 = [7, 8, 9]
 
-      objectOfArrays.subArray3.push(10)
-      console.log(objectOfArrays.subArray3)
-      // console.log(objectOfArrays)
-      if (objectOfArrays.subArray1) {
-        console.log(true)
-      }
-      else {
-        console.log(false)
-      }
-      let objLength = Object.keys(objectOfArrays)
-      console.log(objLength.length)
+      // objectOfArrays.subArray3.push(10)
+      // console.log(objectOfArrays.subArray3)
+      // // console.log(objectOfArrays)
+      // if (objectOfArrays.subArray1) {
+      //   console.log(true)
+      // }
+      // else {
+      //   console.log(false)
+      // }
+      // let objLength = Object.keys(objectOfArrays)
+      // console.log(objLength.length)
      
 
-      for (let key in objectOfArrays) {
-        console.log(key)
-      }
+      // for (let key in objectOfArrays) {
+      //   console.log(key)
+      // }
 
     }, [])
 
     //function to get which day the post was created
     const getDay = (param) => {
       const dataTime = param.time.toString()
-      console.log(dataTime)
+      //console.log(dataTime)
       const splitTime = dataTime.split("")
-      console.log(splitTime)
+      //console.log(splitTime)
       const day = splitTime.splice(0,3)
-      console.log(day)
+      //console.log(day)
       const joinedDay = day.join("")
-      console.log(joinedDay)
+      //console.log(joinedDay)
+      return(joinedDay.toLowerCase())
     }
 
     //function to get the exact time the post was created 
@@ -149,8 +152,60 @@ const Info = (props) => {
       const splitTime = dataTime.split("")
       //console.log(splitTime)
       const time = splitTime.splice(16, 8)
-      const joinedDay= time.join("")
-      console.log(joinedDay)
+      const joinedTime= time.join("")
+      //console.log(joinedTime)
+      return parseInt(joinedTime)
+    }
+
+    const getTimeGap = (param) => {
+      if (param >= 0 && param < 2){
+        let timeGap = "ZeroToTwoHundred"
+        return timeGap
+      }
+      else if (param >= 2 && param < 4){
+        let timeGap = "TwoToFourHundred"
+        return timeGap
+      }
+      else if (param >= 4 && param < 6){
+        let timeGap = "FourToSixHundred"
+        return timeGap
+      }
+      else if (param >= 6 && param < 8){
+        let timeGap = "SixToEightHundred"
+        return timeGap
+      }
+      else if (param >= 8 && param < 10){
+        let timeGap = "EightToTenHundred"
+        return timeGap
+      }
+      else if (param >= 10 && param < 12){
+        let timeGap = "TenToTwelveHundred"
+        return timeGap
+      }
+      else if (param >= 12 && param < 14){
+        let timeGap = "TwelveToFourteenHundred"
+        return timeGap
+      }
+      else if (param >= 14 && param < 16){
+        let timeGap = "FourteenToSixteenHundred"
+        return timeGap
+      }
+      else if (param >= 16 && param < 18){
+        let timeGap = "SixteenToEighteenHundred"
+        return timeGap
+      }
+      else if (param >= 18 && param < 20){
+        let timeGap = "EighteenToTwentyHundred"
+        return timeGap
+      }
+      else if (param >= 20 && param < 22){
+        let timeGap = "TwentyToTwentytwoHundred"
+        return timeGap
+      }
+      else if (param >= 22 && param < 24){
+        let timeGap = "TwentytwoToTwentyfourHundred"
+        return timeGap
+      }
     }
 
     // function that will create the object for each time slot and sort the data respectively
@@ -158,17 +213,27 @@ const Info = (props) => {
 
       // For each iteration of the loop, 
       for (let i = 0; i < data.length; ++i) {
-        //call the getDay function 
-        getDay(data[i])
+        console.log(data[i])
+        //call the getDay function
+        let tempDay = getDay(data[i])
         //call the getHour function 
-        getHours(data[i])
-        //create a temp timegap variable for the the timestamp in which the post occurs in
-        //Create an if statement that either 
-        //creates a new array that the time of the post is in 
-        //adds to an already existing array on the timeframe 
-        // NOTE: the array timeframe will be named by the combination of the dayand the temp timegap variable
+        let tempTime = getHours(data[i])
+
+        console.log(tempDay, tempTime)
+        console.log(tempTime > 8)
+        //create the time gap for the current post data
+        let timeGap = getTimeGap(tempTime)
+        //console.log(timeGap)
+
+        //let postTime = `${tempDay} + ${timeGap}`
+        let postTime = tempDay + timeGap
+        console.log(postTime)
+        console.log(typeof postTime)
+        console.log(chartObject[`${postTime}`])
+        chartObject[`${postTime}`].push(data[i])
       }
-      
+      console.log(chartObject)
+      setParsedData(chartObject)
     }
 
   return (
