@@ -109,8 +109,8 @@ const Info = (props) => {
     let enteries = []
 
     useEffect(()=> {
-      console.log('before use effect', chartObject)
-      // parseData(data)
+      console.log(values)
+      parseData(data)
       // let objectOfArrays = {}
 
       // objectOfArrays.subArray1 = [1, 2, 3]
@@ -133,7 +133,7 @@ const Info = (props) => {
       // for (let key in objectOfArrays) {
       //   console.log(key)
       // }
-      console.log('fire once')
+      console.log(values)
     }, [])
 
 
@@ -214,51 +214,48 @@ const Info = (props) => {
     }
 
     // function that will create the object for each time slot and sort the data respectively
-    console.log('chart object before the const parseData', chartObject)
     const parseData = (param) => {
-      // For each iteration of the loop, 
-      // for (let i = 0; i < 25; ++i) {
-      //   console.log('record', i, param[i])
-      //   //call the getDay function
-      //   let tempDay = getDay(param[i])
-      //   //call the getHour function 
-      //   let tempTime = getHours(param[i])
+ 
+      for (let i = 0; i < 500; ++i) {
+        //call the getDay function
+        let tempDay = getDay(param[i])
+        //call the getHour function 
+        let tempTime = getHours(param[i])
 
-      //   //console.log(tempDay, tempTime)
-      //   //console.log(tempTime > 8)
-      //   //create the time gap for the current post data
-      //   let timeGap = getTimeGap(tempTime)
-      //   //console.log(timeGap)
+        
+        let timeGap = getTimeGap(tempTime)
+     
 
-      //   //let postTime = `${tempDay} + ${timeGap}`
-      //   let postTime = tempDay + timeGap
-      //   //console.log(postTime)
-      //  //console.log(typeof postTime)
-      //  // console.log(chartObject[`${postTime}`])
-      //   chartObject[`${postTime}`].push(param[i])
-      //  //console.log(chartObject[`${postTime}`])
+        //let postTime = `${tempDay} + ${timeGap}`
+        let postTime = tempDay + timeGap
+        //console.log(postTime)
+       //console.log(typeof postTime)
+       // console.log(chartObject[`${postTime}`])
+        chartObject[`${postTime}`].push(param[i])
+       //console.log(chartObject[`${postTime}`])
        
-      // }
-      console.log('after for loop chart object', chartObject)
+      }
+
       setParsedData(chartObject)
       //console.log(parsedData)
 
+      console.log(chartObject)
+
        values= Object.values(chartObject)
-       //values.forEach(element => console.log(element.length))
+       values.forEach(element => console.log(typeof element.length))
 
     }
-    console.log('chart object after the const parseData', chartObject)
-    
 
+      let dummyData= [1, 2, 3, 4]
+    console.log(values)
   return (
     <div className={styles.infoContainer}>
-        <p className={styles.title}>Info</p>
-        {/* <p className={styles.information}>{parsedData}</p> */}
-        <div className={styles.heatmapContainer}> 
-          <div className={styles.row}>
-
-          </div>
-        </div>
+          {dummyData.map((count, i) => (
+            
+              <h1>Hello</h1>
+              
+            ))}
+  
     </div>
   )
 }

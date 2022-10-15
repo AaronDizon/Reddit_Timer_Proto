@@ -14,8 +14,8 @@ const SearchBar = () => {
     const [loaded, setLoaded] = useState(false)
     const [data, setData] = useState([])
 
-    const postsPerRequest = 10
-    const maxPostsToFetch = 50
+    const postsPerRequest = 100
+    const maxPostsToFetch = 500
     const maxRequests = maxPostsToFetch/ postsPerRequest
 
     let infoArray = []
@@ -30,7 +30,7 @@ const SearchBar = () => {
                     .then((response) => {
                         console.log(response.data.data)
                         //console.log(response.data.data.children[0].data)
-                        for (let j = 0; j < maxRequests; j++) {
+                        for (let j = 0; j < postsPerRequest; j++) {
                             let {author, title, selftext, created_utc, url_overridden_by_dest} = response.data.data.children[j].data
                             let tempObj = {
                                 author: author,
@@ -43,7 +43,7 @@ const SearchBar = () => {
                             setData(infoArray)
                             
                         }
-                        console.log('info array', infoArray)
+                        //console.log('info array', infoArray)
                         
                         // for (let j = 0; j < 100; j++) {
                             //     // setInfoSearched(...infoSearched, response.data.data.children[j].data)
@@ -54,19 +54,17 @@ const SearchBar = () => {
                     })
             }
             setLoaded(true)
-            console.log(infoArray)
+            //console.log(infoArray)
         } catch (error) {
             console.log(error)
         }
     }
 
     const postForm = (e) => {
-        console.log('before post form data', data)
         setLoaded(false)
         e.preventDefault()
         getInfo()
         setInfoSearchStatus(true)
-        console.log('ending post form', data)
     }
 
   return (
