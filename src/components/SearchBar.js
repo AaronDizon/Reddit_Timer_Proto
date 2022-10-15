@@ -14,8 +14,8 @@ const SearchBar = () => {
     const [loaded, setLoaded] = useState(false)
     const [data, setData] = useState([])
 
-    const postsPerRequest = 100
-    const maxPostsToFetch = 500
+    const postsPerRequest = 10
+    const maxPostsToFetch = 50
     const maxRequests = maxPostsToFetch/ postsPerRequest
 
     let infoArray = []
@@ -28,9 +28,9 @@ const SearchBar = () => {
                 console.log(tempString)
                 await axios.get(`https://www.reddit.com/r/${description}/top/.json?t=year&limit=${postsPerRequest}&after=${tempString}`)
                     .then((response) => {
-                        //console.log(response.data.data)
+                        console.log(response.data.data)
                         //console.log(response.data.data.children[0].data)
-                        for (let j = 0; j < 25; j++) {
+                        for (let j = 0; j < maxRequests; j++) {
                             let {author, title, selftext, created_utc, url_overridden_by_dest} = response.data.data.children[j].data
                             let tempObj = {
                                 author: author,
@@ -41,28 +41,32 @@ const SearchBar = () => {
                             }
                             infoArray = [...infoArray, tempObj]
                             setData(infoArray)
+                            
                         }
+                        console.log('info array', infoArray)
                         
                         // for (let j = 0; j < 100; j++) {
                             //     // setInfoSearched(...infoSearched, response.data.data.children[j].data)
                             // }
                             tempString = response.data.data.after
-                            //console.log(infoArray)
+                           
                             
                     })
             }
-            //console.log(data)
             setLoaded(true)
+            console.log(infoArray)
         } catch (error) {
             console.log(error)
         }
     }
 
     const postForm = (e) => {
+        console.log('before post form data', data)
         setLoaded(false)
         e.preventDefault()
         getInfo()
         setInfoSearchStatus(true)
+        console.log('ending post form', data)
     }
 
   return (

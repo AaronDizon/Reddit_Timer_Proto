@@ -104,9 +104,13 @@ const Info = (props) => {
       satTwentytwoToTwentyfourHundred: []
 
     }
-    
+    let keys = []
+    let values = []
+    let enteries = []
+
     useEffect(()=> {
-      parseData(data)
+      console.log('before use effect', chartObject)
+      // parseData(data)
       // let objectOfArrays = {}
 
       // objectOfArrays.subArray1 = [1, 2, 3]
@@ -129,8 +133,9 @@ const Info = (props) => {
       // for (let key in objectOfArrays) {
       //   console.log(key)
       // }
-
+      console.log('fire once')
     }, [])
+
 
     //function to get which day the post was created
     const getDay = (param) => {
@@ -209,37 +214,46 @@ const Info = (props) => {
     }
 
     // function that will create the object for each time slot and sort the data respectively
-    const parseData = () => {
-
+    console.log('chart object before the const parseData', chartObject)
+    const parseData = (param) => {
       // For each iteration of the loop, 
-      for (let i = 0; i < data.length; ++i) {
-        console.log(data[i])
-        //call the getDay function
-        let tempDay = getDay(data[i])
-        //call the getHour function 
-        let tempTime = getHours(data[i])
+      // for (let i = 0; i < 25; ++i) {
+      //   console.log('record', i, param[i])
+      //   //call the getDay function
+      //   let tempDay = getDay(param[i])
+      //   //call the getHour function 
+      //   let tempTime = getHours(param[i])
 
-        console.log(tempDay, tempTime)
-        console.log(tempTime > 8)
-        //create the time gap for the current post data
-        let timeGap = getTimeGap(tempTime)
-        //console.log(timeGap)
+      //   //console.log(tempDay, tempTime)
+      //   //console.log(tempTime > 8)
+      //   //create the time gap for the current post data
+      //   let timeGap = getTimeGap(tempTime)
+      //   //console.log(timeGap)
 
-        //let postTime = `${tempDay} + ${timeGap}`
-        let postTime = tempDay + timeGap
-        console.log(postTime)
-        console.log(typeof postTime)
-        console.log(chartObject[`${postTime}`])
-        chartObject[`${postTime}`].push(data[i])
-      }
-      console.log(chartObject)
+      //   //let postTime = `${tempDay} + ${timeGap}`
+      //   let postTime = tempDay + timeGap
+      //   //console.log(postTime)
+      //  //console.log(typeof postTime)
+      //  // console.log(chartObject[`${postTime}`])
+      //   chartObject[`${postTime}`].push(param[i])
+      //  //console.log(chartObject[`${postTime}`])
+       
+      // }
+      console.log('after for loop chart object', chartObject)
       setParsedData(chartObject)
+      //console.log(parsedData)
+
+       values= Object.values(chartObject)
+       //values.forEach(element => console.log(element.length))
+
     }
+    console.log('chart object after the const parseData', chartObject)
+    
 
   return (
     <div className={styles.infoContainer}>
         <p className={styles.title}>Info</p>
-        <p className={styles.information}>{infoSearched}</p>
+        {/* <p className={styles.information}>{parsedData}</p> */}
         <div className={styles.heatmapContainer}> 
           <div className={styles.row}>
 
