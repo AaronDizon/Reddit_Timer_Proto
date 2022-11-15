@@ -1,6 +1,6 @@
-import {React, useState, useContext, useEffect } from 'react'
 import { SearchContext } from '../context/SearchContext'
 import styles from '../Styling/Info.module.css'
+import {React, useState, useContext, useEffect } from 'react'
 
 const Info = (props) => {
 
@@ -12,101 +12,284 @@ const Info = (props) => {
 
     const chartObject = {
 
-      sunZeroToTwoHundred: [],
-      sunTwoToFourHundred: [],
-      sunFourToSixHundred: [],
-      sunSixToEightHundred: [],
-      sunEightToTenHundred: [],
-      sunTenToTwelveHundred: [],
-      sunTwelveToFourteenHundred: [],
-      sunFourteenToSixteenHundred: [],
-      sunSixteenToEighteenHundred: [],
-      sunEighteenToTwentyHundred: [],
-      sunTwentyToTwentytwoHundred: [],
-      sunTwentytwoToTwentyfourHundred: [],
+      sunZeroToOneHundred: [],
+      sunOneToTwoHundred: [],
+      sunTwoToThreeHundred: [],
+      sunThreeToFourHundred: [],
+      sunFourToFiveHundred: [],
+      sunFiveToSixHundred: [],
+      sunSixToSevenHundred: [],
+      sunSevenToEightHundred: [],
+      sunEightToNineHundred: [],
+      sunNineToTenHundred: [],
+      sunTenToElevenHundred: [],
+      sunElevenToTwelveHundred: [],
+      sunTwelveToThirteenHundred: [],
+      sunThirteenToFourteenHundred: [],
+      sunFourteenToFifteenHundred: [],
+      sunFifteenToSixteenHundred: [],
+      sunSixteenToSeventeenHundred: [],
+      sunSeventeenToEighteenHundred: [],
+      sunEighteenToNineteenHundred: [],
+      sunNineteenToTwentyHundred: [],
+      sunTwentyToTwentyoneHundred: [],
+      sunTwentyoneToTwentytwoHundred: [],
+      sunTwentytwoToTwentythreeHundred: [],
+      sunTwentythreeToTwentyfourHundred: [],
 
-      monZeroToTwoHundred: [],
-      monTwoToFourHundred: [],
-      monFourToSixHundred: [],
-      monSixToEightHundred: [],
-      monEightToTenHundred: [],
-      monTenToTwelveHundred: [],
-      monTwelveToFourteenHundred: [],
-      monFourteenToSixteenHundred: [],
-      monSixteenToEighteenHundred: [],
-      monEighteenToTwentyHundred: [],
-      monTwentyToTwentytwoHundred: [],
-      monTwentytwoToTwentyfourHundred: [],
+     
+      monZeroToOneHundred: [],
+      monOneToTwoHundred: [],
+      monTwoToThreeHundred: [],
+      monThreeToFourHundred: [],
+      monFourToFiveHundred: [],
+      monFiveToSixHundred: [],
+      monSixToSevenHundred: [],
+      monSevenToEightHundred: [],
+      monEightToNineHundred: [],
+      monNineToTenHundred: [],
+      monTenToElevenHundred: [],
+      monElevenToTwelveHundred: [],
+      monTwelveToThirteenHundred: [],
+      monThirteenToFourteenHundred: [],
+      monFourteenToFifteenHundred: [],
+      monFifteenToSixteenHundred: [],
+      monSixteenToSeventeenHundred: [],
+      monSeventeenToEighteenHundred: [],
+      monEighteenToNineteenHundred: [],
+      monNineteenToTwentyHundred: [],
+      monTwentyToTwentyoneHundred: [],
+      monTwentyoneToTwentytwoHundred: [],
+      monTwentytwoToTwentythreeHundred: [],
+      monTwentythreeToTwentyfourHundred: [],
 
-      tueZeroToTwoHundred: [],
-      tueTwoToFourHundred: [],
-      tueFourToSixHundred: [],
-      tueSixToEightHundred: [],
-      tueEightToTenHundred: [],
-      tueTenToTwelveHundred: [],
-      tueTwelveToFourteenHundred: [],
-      tueFourteenToSixteenHundred: [],
-      tueSixteenToEighteenHundred: [],
-      tueEighteenToTwentyHundred: [],
-      tueTwentyToTwentytwoHundred: [],
-      tueTwentytwoToTwentyfourHundred: [],
+     
+      tueZeroToOneHundred: [],
+      tueOneToTwoHundred: [],
+      tueTwoToThreeHundred: [],
+      tueThreeToFourHundred: [],
+      tueFourToFiveHundred: [],
+      tueFiveToSixHundred: [],
+      tueSixToSevenHundred: [],
+      tueSevenToEightHundred: [],
+      tueEightToNineHundred: [],
+      tueNineToTenHundred: [],
+      tueTenToElevenHundred: [],
+      tueElevenToTwelveHundred: [],
+      tueTwelveToThirteenHundred: [],
+      tueThirteenToFourteenHundred: [],
+      tueFourteenToFifteenHundred: [],
+      tueFifteenToSixteenHundred: [],
+      tueSixteenToSeventeenHundred: [],
+      tueSeventeenToEighteenHundred: [],
+      tueEighteenToNineteenHundred: [],
+      tueNineteenToTwentyHundred: [],
+      tueTwentyToTwentyoneHundred: [],
+      tueTwentyoneToTwentytwoHundred: [],
+      tueTwentytwoToTwentythreeHundred: [],
+      tueTwentythreeToTwentyfourHundred: [],
 
-      wedZeroToTwoHundred: [],
-      wedTwoToFourHundred: [],
-      wedFourToSixHundred: [],
-      wedSixToEightHundred: [],
-      wedEightToTenHundred: [],
-      wedTenToTwelveHundred: [],
-      wedTwelveToFourteenHundred: [],
-      wedFourteenToSixteenHundred: [],
-      wedSixteenToEighteenHundred: [],
-      wedEighteenToTwentyHundred: [],
-      wedTwentyToTwentytwoHundred: [],
-      wedTwentytwoToTwentyfourHundred: [],
+     
+      wedZeroToOneHundred: [],
+      wedOneToTwoHundred: [],
+      wedTwoToThreeHundred: [],
+      wedThreeToFourHundred: [],
+      wedFourToFiveHundred: [],
+      wedFiveToSixHundred: [],
+      wedSixToSevenHundred: [],
+      wedSevenToEightHundred: [],
+      wedEightToNineHundred: [],
+      wedNineToTenHundred: [],
+      wedTenToElevenHundred: [],
+      wedElevenToTwelveHundred: [],
+      wedTwelveToThirteenHundred: [],
+      wedThirteenToFourteenHundred: [],
+      wedFourteenToFifteenHundred: [],
+      wedFifteenToSixteenHundred: [],
+      wedSixteenToSeventeenHundred: [],
+      wedSeventeenToEighteenHundred: [],
+      wedEighteenToNineteenHundred: [],
+      wedNineteenToTwentyHundred: [],
+      wedTwentyToTwentyoneHundred: [],
+      wedTwentyoneToTwentytwoHundred: [],
+      wedTwentytwoToTwentythreeHundred: [],
+      wedTwentythreeToTwentyfourHundred: [],
 
-      thuZeroToTwoHundred: [],
-      thuTwoToFourHundred: [],
-      thuFourToSixHundred: [],
-      thuSixToEightHundred: [],
-      thuEightToTenHundred: [],
-      thuTenToTwelveHundred: [],
-      thuTwelveToFourteenHundred: [],
-      thuFourteenToSixteenHundred: [],
-      thuSixteenToEighteenHundred: [],
-      thuEighteenToTwentyHundred: [],
-      thuTwentyToTwentytwoHundred: [],
-      thuTwentytwoToTwentyfourHundred: [],
+     
+      thuZeroToOneHundred: [],
+      thuOneToTwoHundred: [],
+      thuTwoToThreeHundred: [],
+      thuThreeToFourHundred: [],
+      thuFourToFiveHundred: [],
+      thuFiveToSixHundred: [],
+      thuSixToSevenHundred: [],
+      thuSevenToEightHundred: [],
+      thuEightToNineHundred: [],
+      thuNineToTenHundred: [],
+      thuTenToElevenHundred: [],
+      thuElevenToTwelveHundred: [],
+      thuTwelveToThirteenHundred: [],
+      thuThirteenToFourteenHundred: [],
+      thuFourteenToFifteenHundred: [],
+      thuFifteenToSixteenHundred: [],
+      thuSixteenToSeventeenHundred: [],
+      thuSeventeenToEighteenHundred: [],
+      thuEighteenToNineteenHundred: [],
+      thuNineteenToTwentyHundred: [],
+      thuTwentyToTwentyoneHundred: [],
+      thuTwentyoneToTwentytwoHundred: [],
+      thuTwentytwoToTwentythreeHundred: [],
+      thuTwentythreeToTwentyfourHundred: [],
 
-      friZeroToTwoHundred: [],
-      friTwoToFourHundred: [],
-      friFourToSixHundred: [],
-      friSixToEightHundred: [],
-      friEightToTenHundred: [],
-      friTenToTwelveHundred: [],
-      friTwelveToFourteenHundred: [],
-      friFourteenToSixteenHundred: [],
-      friSixteenToEighteenHundred: [],
-      friEighteenToTwentyHundred: [],
-      friTwentyToTwentytwoHundred: [],
-      friTwentytwoToTwentyfourHundred: [],
+     
+      friZeroToOneHundred: [],
+      friOneToTwoHundred: [],
+      friTwoToThreeHundred: [],
+      friThreeToFourHundred: [],
+      friFourToFiveHundred: [],
+      friFiveToSixHundred: [],
+      friSixToSevenHundred: [],
+      friSevenToEightHundred: [],
+      friEightToNineHundred: [],
+      friNineToTenHundred: [],
+      friTenToElevenHundred: [],
+      friElevenToTwelveHundred: [],
+      friTwelveToThirteenHundred: [],
+      friThirteenToFourteenHundred: [],
+      friFourteenToFifteenHundred: [],
+      friFifteenToSixteenHundred: [],
+      friSixteenToSeventeenHundred: [],
+      friSeventeenToEighteenHundred: [],
+      friEighteenToNineteenHundred: [],
+      friNineteenToTwentyHundred: [],
+      friTwentyToTwentyoneHundred: [],
+      friTwentyoneToTwentytwoHundred: [],
+      friTwentytwoToTwentythreeHundred: [],
+      friTwentythreeToTwentyfourHundred: [],
 
-      satZeroToTwoHundred: [],
-      satTwoToFourHundred: [],
-      satFourToSixHundred: [],
-      satSixToEightHundred: [],
-      satEightToTenHundred: [],
-      satTenToTwelveHundred: [],
-      satTwelveToFourteenHundred: [],
-      satFourteenToSixteenHundred: [],
-      satSixteenToEighteenHundred: [],
-      satEighteenToTwentyHundred: [],
-      satTwentyToTwentytwoHundred: [],
-      satTwentytwoToTwentyfourHundred: []
+     
+      satZeroToOneHundred: [],
+      satOneToTwoHundred: [],
+      satTwoToThreeHundred: [],
+      satThreeToFourHundred: [],
+      satFourToFiveHundred: [],
+      satFiveToSixHundred: [],
+      satSixToSevenHundred: [],
+      satSevenToEightHundred: [],
+      satEightToNineHundred: [],
+      satNineToTenHundred: [],
+      satTenToElevenHundred: [],
+      satElevenToTwelveHundred: [],
+      satTwelveToThirteenHundred: [],
+      satThirteenToFourteenHundred: [],
+      satFourteenToFifteenHundred: [],
+      satFifteenToSixteenHundred: [],
+      satSixteenToSeventeenHundred: [],
+      satSeventeenToEighteenHundred: [],
+      satEighteenToNineteenHundred: [],
+      satNineteenToTwentyHundred: [],
+      satTwentyToTwentyoneHundred: [],
+      satTwentyoneToTwentytwoHundred: [],
+      satTwentytwoToTwentythreeHundred: [],
+      satTwentythreeToTwentyfourHundred: []
+
+     
+
+      // sunZeroToTwoHundred: [],
+      // sunTwoToFourHundred: [],
+      // sunFourToSixHundred: [],
+      // sunSixToEightHundred: [],
+      // sunEightToTenHundred: [],
+      // sunTenToTwelveHundred: [],
+      // sunTwelveToFourteenHundred: [],
+      // sunFourteenToSixteenHundred: [],
+      // sunSixteenToEighteenHundred: [],
+      // sunEighteenToTwentyHundred: [],
+      // sunTwentyToTwentytwoHundred: [],
+      // sunTwentytwoToTwentyfourHundred: [],
+
+      // monZeroToTwoHundred: [],
+      // monTwoToFourHundred: [],
+      // monFourToSixHundred: [],
+      // monSixToEightHundred: [],
+      // monEightToTenHundred: [],
+      // monTenToTwelveHundred: [],
+      // monTwelveToFourteenHundred: [],
+      // monFourteenToSixteenHundred: [],
+      // monSixteenToEighteenHundred: [],
+      // monEighteenToTwentyHundred: [],
+      // monTwentyToTwentytwoHundred: [],
+      // monTwentytwoToTwentyfourHundred: [],
+
+      // tueZeroToTwoHundred: [],
+      // tueTwoToFourHundred: [],
+      // tueFourToSixHundred: [],
+      // tueSixToEightHundred: [],
+      // tueEightToTenHundred: [],
+      // tueTenToTwelveHundred: [],
+      // tueTwelveToFourteenHundred: [],
+      // tueFourteenToSixteenHundred: [],
+      // tueSixteenToEighteenHundred: [],
+      // tueEighteenToTwentyHundred: [],
+      // tueTwentyToTwentytwoHundred: [],
+      // tueTwentytwoToTwentyfourHundred: [],
+
+      // wedZeroToTwoHundred: [],
+      // wedTwoToFourHundred: [],
+      // wedFourToSixHundred: [],
+      // wedSixToEightHundred: [],
+      // wedEightToTenHundred: [],
+      // wedTenToTwelveHundred: [],
+      // wedTwelveToFourteenHundred: [],
+      // wedFourteenToSixteenHundred: [],
+      // wedSixteenToEighteenHundred: [],
+      // wedEighteenToTwentyHundred: [],
+      // wedTwentyToTwentytwoHundred: [],
+      // wedTwentytwoToTwentyfourHundred: [],
+
+      // thuZeroToTwoHundred: [],
+      // thuTwoToFourHundred: [],
+      // thuFourToSixHundred: [],
+      // thuSixToEightHundred: [],
+      // thuEightToTenHundred: [],
+      // thuTenToTwelveHundred: [],
+      // thuTwelveToFourteenHundred: [],
+      // thuFourteenToSixteenHundred: [],
+      // thuSixteenToEighteenHundred: [],
+      // thuEighteenToTwentyHundred: [],
+      // thuTwentyToTwentytwoHundred: [],
+      // thuTwentytwoToTwentyfourHundred: [],
+
+      // friZeroToTwoHundred: [],
+      // friTwoToFourHundred: [],
+      // friFourToSixHundred: [],
+      // friSixToEightHundred: [],
+      // friEightToTenHundred: [],
+      // friTenToTwelveHundred: [],
+      // friTwelveToFourteenHundred: [],
+      // friFourteenToSixteenHundred: [],
+      // friSixteenToEighteenHundred: [],
+      // friEighteenToTwentyHundred: [],
+      // friTwentyToTwentytwoHundred: [],
+      // friTwentytwoToTwentyfourHundred: [],
+
+      // satZeroToTwoHundred: [],
+      // satTwoToFourHundred: [],
+      // satFourToSixHundred: [],
+      // satSixToEightHundred: [],
+      // satEightToTenHundred: [],
+      // satTenToTwelveHundred: [],
+      // satTwelveToFourteenHundred: [],
+      // satFourteenToSixteenHundred: [],
+      // satSixteenToEighteenHundred: [],
+      // satEighteenToTwentyHundred: [],
+      // satTwentyToTwentytwoHundred: [],
+      // satTwentytwoToTwentyfourHundred: []
 
     }
     let keys = []
     let values = []
-    let enteries = []
+    let enteries = [] 
 
     useEffect(()=> {
       console.log(values)
@@ -163,52 +346,126 @@ const Info = (props) => {
     }
 
     const getTimeGap = (param) => {
-      if (param >= 0 && param < 2){
-        let timeGap = "ZeroToTwoHundred"
+
+      // ZeroToOneHundred: [],
+      // OneToTwoHundred: [],
+      // TwoToThreeHundred: [],
+      // ThreeToFourHundred: [],
+      // FourToFiveHundred: [],
+      // FiveToSixHundred: [],
+      // SixToSevenHundred: [],
+      // SevenToEightHundred: [],
+      // EightToNineHundred: [],
+      // NineToTenHundred: [],
+      // TenToElevenHundred: [],
+      // ElevenToTwelveHundred: [],
+      // TwelveToThirteenHundred: [],
+      // ThirteenToFourteenHundred: [],
+      // FourteenToFifteenHundred: [],
+      // FifteenToSixteenHundred: [],
+      // SixteenToSeventeenHundred: [],
+      // SeventeenToEighteenHundred: [],
+      // EighteenToNineteenHundred: [],
+      // NineteenToTwentyHundred: [],
+      // TwentyToTwentyoneHundred: [],
+      // TwentyoneToTwentytwoHundred: [],
+      // TwentytwoToTwentythreeHundred: [],
+      // TwentythreeToTwentyfourHundred: [],
+
+      if (param >= 0 && param < 1){
+        let timeGap = "ZeroToOneHundred"
         return timeGap
       }
-      else if (param >= 2 && param < 4){
-        let timeGap = "TwoToFourHundred"
+      else if (param >= 1 && param < 2){
+        let timeGap = "OneToTwoHundred"
         return timeGap
       }
-      else if (param >= 4 && param < 6){
-        let timeGap = "FourToSixHundred"
+      else if (param >= 2 && param < 3){
+        let timeGap = "TwoToThreeHundred"
         return timeGap
       }
-      else if (param >= 6 && param < 8){
-        let timeGap = "SixToEightHundred"
+      else if (param >= 3 && param < 4){
+        let timeGap = "ThreeToFourHundred"
         return timeGap
       }
-      else if (param >= 8 && param < 10){
-        let timeGap = "EightToTenHundred"
+      else if (param >= 4 && param < 5){
+        let timeGap = "FourToFiveHundred"
         return timeGap
       }
-      else if (param >= 10 && param < 12){
-        let timeGap = "TenToTwelveHundred"
+      else if (param >= 5 && param < 6){
+        let timeGap = "FiveToSixHundred"
         return timeGap
       }
-      else if (param >= 12 && param < 14){
-        let timeGap = "TwelveToFourteenHundred"
+      else if (param >= 6 && param < 7){
+        let timeGap = "SixToSevenHundred"
         return timeGap
       }
-      else if (param >= 14 && param < 16){
-        let timeGap = "FourteenToSixteenHundred"
+      else if (param >= 7 && param < 8){
+        let timeGap = "SevenToEightHundred"
         return timeGap
       }
-      else if (param >= 16 && param < 18){
-        let timeGap = "SixteenToEighteenHundred"
+      else if (param >= 8 && param < 9){
+        let timeGap = "EightToNineHundred"
         return timeGap
       }
-      else if (param >= 18 && param < 20){
-        let timeGap = "EighteenToTwentyHundred"
+      else if (param >= 9 && param < 10){
+        let timeGap = "NineToTenHundred"
         return timeGap
       }
-      else if (param >= 20 && param < 22){
-        let timeGap = "TwentyToTwentytwoHundred"
+      else if (param >= 10 && param < 11){
+        let timeGap = "TenToElevenHundred"
         return timeGap
       }
-      else if (param >= 22 && param < 24){
-        let timeGap = "TwentytwoToTwentyfourHundred"
+      else if (param >= 11 && param <12){
+        let timeGap = "ElevenToTwelveHundred"
+        return timeGap
+      }
+      else if (param >= 12 && param <13){
+        let timeGap = "TwelveToThirteenHundred"
+        return timeGap
+      }
+      else if (param >= 13 && param <14){
+        let timeGap = "ThirteenToFourteenHundred"
+        return timeGap
+      }
+      else if (param >= 14 && param <15){
+        let timeGap = "FourteenToFifteenHundred"
+        return timeGap
+      }
+      else if (param >= 15 && param <16){
+        let timeGap = "FifteenToSixteenHundred"
+        return timeGap
+      }
+      else if (param >= 16 && param <17){
+        let timeGap = "SixteenToSeventeenHundred"
+        return timeGap
+      }
+      else if (param >= 17 && param <18){
+        let timeGap = "SeventeenToEighteenHundred"
+        return timeGap
+      }
+      else if (param >= 18 && param <19){
+        let timeGap = "EighteenToNineteenHundred"
+        return timeGap
+      }
+      else if (param >= 19 && param <20){
+        let timeGap = "NineteenToTwentyHundred"
+        return timeGap
+      }
+      else if (param >= 20 && param <21){
+        let timeGap = "TwentyToTwentyoneHundred"
+        return timeGap
+      }
+      else if (param >= 21 && param <22){
+        let timeGap = "TwentyoneToTwentytwoHundred"
+        return timeGap
+      }
+      else if (param >= 22 && param <23){
+        let timeGap = "TwentytwoToTwentythreeHundred"
+        return timeGap
+      }
+      else if (param >= 23 && param <24){
+        let timeGap = "TwentythreeToTwentyfourHundred"
         return timeGap
       }
     }
@@ -219,20 +476,23 @@ const Info = (props) => {
       for (let i = 0; i < 500; ++i) {
         //call the getDay function
         let tempDay = getDay(param[i])
+        console.log(tempDay)
         //call the getHour function 
         let tempTime = getHours(param[i])
+        console.log(tempTime)
 
         
         let timeGap = getTimeGap(tempTime)
-     
-
+        
+        console.log(timeGap)
         //let postTime = `${tempDay} + ${timeGap}`
         let postTime = tempDay + timeGap
         //console.log(postTime)
        //console.log(typeof postTime)
-       // console.log(chartObject[`${postTime}`])
-        chartObject[`${postTime}`].push(param[i])
        //console.log(chartObject[`${postTime}`])
+       console.log(postTime)
+       console.log(chartObject[`${postTime}`])
+        chartObject[`${postTime}`].push(param[i])
        
       }
 
@@ -250,12 +510,12 @@ const Info = (props) => {
     console.log(values)
   return (
     <div className={styles.infoContainer}>
-          {dummyData.map((count, i) => (
+          {/* {dummyData.map((count, i) => (
             
               <h1>Hello</h1>
               
-            ))}
-  
+            ))} */}
+      <p>Info</p>
     </div>
   )
 }
