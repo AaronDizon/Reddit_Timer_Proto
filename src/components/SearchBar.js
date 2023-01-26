@@ -15,7 +15,7 @@ const SearchBar = () => {
     const [data, setData] = useState([])
 
     const postsPerRequest = 100
-    const maxPostsToFetch = 500
+    const maxPostsToFetch = 800
     const maxRequests = maxPostsToFetch/ postsPerRequest
 
     let infoArray = []

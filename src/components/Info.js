@@ -383,15 +383,17 @@ const Info = (props) => {
       setParsedData(chartObject)
       //console.log(parsedData)
 
-      console.log(chartObject)
+      //console.log(chartObject)
 
-       values= Object.values(chartObject)
-       values.forEach(element => console.log(typeof element.length))
+      //  values= Object.values(chartObject)
+      //  values.forEach(element => console.log(typeof element.length))
+
+      values= chartObject
 
     }
 
       let dummyData= [1, 2, 3, 4]
-    console.log(values)
+    // console.log(values)
   return (
     <div className={styles.infoContainer}>
           {/* {dummyData.map((count, i) => (
