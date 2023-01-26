@@ -200,7 +200,7 @@ const Info = (props) => {
     let enteries = [] 
 
     useEffect(()=> {
-      console.log(values)
+      //console.log(values)
       parseData(data)
       // let objectOfArrays = {}
 
@@ -225,6 +225,7 @@ const Info = (props) => {
       //   console.log(key)
       // }
       console.log(values)
+      createSeries(values)
     }, [])
 
 
@@ -357,39 +358,42 @@ const Info = (props) => {
     // function that will create the object for each time slot and sort the data respectively
     const parseData = (param) => {
  
-      for (let i = 0; i < 500; ++i) {
-        //call the getDay function
+      for (let i = 0; i < 300; ++i) {
+      
         let tempDay = getDay(param[i])
-        //console.log(tempDay)
-        //call the getHour function 
+  
         let tempTime = getHours(param[i])
-        //console.log(tempTime)
+
 
         
         let timeGap = getTimeGap(tempTime)
         
-        //console.log(timeGap)
-        //let postTime = `${tempDay} + ${timeGap}`
+
         let postTime = tempDay + timeGap
-        //console.log(postTime)
-       //console.log(typeof postTime)
-       //console.log(chartObject[`${postTime}`])
-       //console.log(postTime)
-       //console.log(chartObject[`${postTime}`])
+      
         chartObject[`${postTime}`].push(param[i])
        
       }
 
       setParsedData(chartObject)
-      //console.log(parsedData)
-
-      //console.log(chartObject)
+  
 
       //  values= Object.values(chartObject)
       //  values.forEach(element => console.log(typeof element.length))
 
       values= chartObject
 
+    }
+
+    //function to set values object as an array for data for highcharts
+
+    const createSeries = (param) => {
+      let objectArray = Object.entries(param)
+      console.log(objectArray.length)
+      // let newSeries = []
+      //   for (let i = 0; i < param.length; ++i){
+      //     console.log('working')
+      //   }
     }
 
       let dummyData= [1, 2, 3, 4]
