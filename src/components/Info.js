@@ -193,98 +193,6 @@ const Info = (props) => {
       satTwentytwoToTwentythreeHundred: [],
       satTwentythreeToTwentyfourHundred: []
 
-     
-
-      // sunZeroToTwoHundred: [],
-      // sunTwoToFourHundred: [],
-      // sunFourToSixHundred: [],
-      // sunSixToEightHundred: [],
-      // sunEightToTenHundred: [],
-      // sunTenToTwelveHundred: [],
-      // sunTwelveToFourteenHundred: [],
-      // sunFourteenToSixteenHundred: [],
-      // sunSixteenToEighteenHundred: [],
-      // sunEighteenToTwentyHundred: [],
-      // sunTwentyToTwentytwoHundred: [],
-      // sunTwentytwoToTwentyfourHundred: [],
-
-      // monZeroToTwoHundred: [],
-      // monTwoToFourHundred: [],
-      // monFourToSixHundred: [],
-      // monSixToEightHundred: [],
-      // monEightToTenHundred: [],
-      // monTenToTwelveHundred: [],
-      // monTwelveToFourteenHundred: [],
-      // monFourteenToSixteenHundred: [],
-      // monSixteenToEighteenHundred: [],
-      // monEighteenToTwentyHundred: [],
-      // monTwentyToTwentytwoHundred: [],
-      // monTwentytwoToTwentyfourHundred: [],
-
-      // tueZeroToTwoHundred: [],
-      // tueTwoToFourHundred: [],
-      // tueFourToSixHundred: [],
-      // tueSixToEightHundred: [],
-      // tueEightToTenHundred: [],
-      // tueTenToTwelveHundred: [],
-      // tueTwelveToFourteenHundred: [],
-      // tueFourteenToSixteenHundred: [],
-      // tueSixteenToEighteenHundred: [],
-      // tueEighteenToTwentyHundred: [],
-      // tueTwentyToTwentytwoHundred: [],
-      // tueTwentytwoToTwentyfourHundred: [],
-
-      // wedZeroToTwoHundred: [],
-      // wedTwoToFourHundred: [],
-      // wedFourToSixHundred: [],
-      // wedSixToEightHundred: [],
-      // wedEightToTenHundred: [],
-      // wedTenToTwelveHundred: [],
-      // wedTwelveToFourteenHundred: [],
-      // wedFourteenToSixteenHundred: [],
-      // wedSixteenToEighteenHundred: [],
-      // wedEighteenToTwentyHundred: [],
-      // wedTwentyToTwentytwoHundred: [],
-      // wedTwentytwoToTwentyfourHundred: [],
-
-      // thuZeroToTwoHundred: [],
-      // thuTwoToFourHundred: [],
-      // thuFourToSixHundred: [],
-      // thuSixToEightHundred: [],
-      // thuEightToTenHundred: [],
-      // thuTenToTwelveHundred: [],
-      // thuTwelveToFourteenHundred: [],
-      // thuFourteenToSixteenHundred: [],
-      // thuSixteenToEighteenHundred: [],
-      // thuEighteenToTwentyHundred: [],
-      // thuTwentyToTwentytwoHundred: [],
-      // thuTwentytwoToTwentyfourHundred: [],
-
-      // friZeroToTwoHundred: [],
-      // friTwoToFourHundred: [],
-      // friFourToSixHundred: [],
-      // friSixToEightHundred: [],
-      // friEightToTenHundred: [],
-      // friTenToTwelveHundred: [],
-      // friTwelveToFourteenHundred: [],
-      // friFourteenToSixteenHundred: [],
-      // friSixteenToEighteenHundred: [],
-      // friEighteenToTwentyHundred: [],
-      // friTwentyToTwentytwoHundred: [],
-      // friTwentytwoToTwentyfourHundred: [],
-
-      // satZeroToTwoHundred: [],
-      // satTwoToFourHundred: [],
-      // satFourToSixHundred: [],
-      // satSixToEightHundred: [],
-      // satEightToTenHundred: [],
-      // satTenToTwelveHundred: [],
-      // satTwelveToFourteenHundred: [],
-      // satFourteenToSixteenHundred: [],
-      // satSixteenToEighteenHundred: [],
-      // satEighteenToTwentyHundred: [],
-      // satTwentyToTwentytwoHundred: [],
-      // satTwentytwoToTwentyfourHundred: []
 
     }
     let keys = []
@@ -347,31 +255,7 @@ const Info = (props) => {
 
     const getTimeGap = (param) => {
 
-      // ZeroToOneHundred: [],
-      // OneToTwoHundred: [],
-      // TwoToThreeHundred: [],
-      // ThreeToFourHundred: [],
-      // FourToFiveHundred: [],
-      // FiveToSixHundred: [],
-      // SixToSevenHundred: [],
-      // SevenToEightHundred: [],
-      // EightToNineHundred: [],
-      // NineToTenHundred: [],
-      // TenToElevenHundred: [],
-      // ElevenToTwelveHundred: [],
-      // TwelveToThirteenHundred: [],
-      // ThirteenToFourteenHundred: [],
-      // FourteenToFifteenHundred: [],
-      // FifteenToSixteenHundred: [],
-      // SixteenToSeventeenHundred: [],
-      // SeventeenToEighteenHundred: [],
-      // EighteenToNineteenHundred: [],
-      // NineteenToTwentyHundred: [],
-      // TwentyToTwentyoneHundred: [],
-      // TwentyoneToTwentytwoHundred: [],
-      // TwentytwoToTwentythreeHundred: [],
-      // TwentythreeToTwentyfourHundred: [],
-
+      
       if (param >= 0 && param < 1){
         let timeGap = "ZeroToOneHundred"
         return timeGap
@@ -476,22 +360,22 @@ const Info = (props) => {
       for (let i = 0; i < 500; ++i) {
         //call the getDay function
         let tempDay = getDay(param[i])
-        console.log(tempDay)
+        //console.log(tempDay)
         //call the getHour function 
         let tempTime = getHours(param[i])
-        console.log(tempTime)
+        //console.log(tempTime)
 
         
         let timeGap = getTimeGap(tempTime)
         
-        console.log(timeGap)
+        //console.log(timeGap)
         //let postTime = `${tempDay} + ${timeGap}`
         let postTime = tempDay + timeGap
         //console.log(postTime)
        //console.log(typeof postTime)
        //console.log(chartObject[`${postTime}`])
-       console.log(postTime)
-       console.log(chartObject[`${postTime}`])
+       //console.log(postTime)
+       //console.log(chartObject[`${postTime}`])
         chartObject[`${postTime}`].push(param[i])
        
       }
