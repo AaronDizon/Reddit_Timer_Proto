@@ -199,6 +199,8 @@ const Info = (props) => {
     let values = []
     let enteries = [] 
 
+    let seriesData = []
+
     useEffect(()=> {
       //console.log(values)
       parseData(data)
@@ -358,7 +360,7 @@ const Info = (props) => {
     // function that will create the object for each time slot and sort the data respectively
     const parseData = (param) => {
  
-      for (let i = 0; i < 300; ++i) {
+      for (let i = 0; i < 500; ++i) {
       
         let tempDay = getDay(param[i])
   
@@ -388,28 +390,94 @@ const Info = (props) => {
     //function to set values object as an array for data for highcharts
 
     const createSeries = (param) => {
+      seriesData = []
       let objectArray = Object.entries(param)
       console.log(objectArray.length)
-      let newSeries = []
         for (let i = 0; i < objectArray.length; ++i){
-          let tempTime
-          let tempDay
-          let tempCount
+          let tempTimeSeries
+          let tempDaySeries
+          let tempCountSeries
 
-          let tempEntry
-          //console.log(objectArray[i])
+          let tempEntry = []
           let tempArray = objectArray[i]
           for (let j = 0; j < tempArray.length; ++j){
-            //console.log(typeof tempArray[j])
             if (typeof tempArray[j] === 'string') {
               let tempDay = tempArray[j].slice(0,3)
+                if (tempDay === 'sun') {
+                  tempDaySeries = 0
+                }else if (tempDay === 'mon'){
+                  tempDaySeries = 1
+                }else if (tempDay === 'tue'){
+                  tempDaySeries = 2
+                }else if (tempDay === 'wed'){
+                  tempDaySeries = 3
+                }else if (tempDay === 'thu'){
+                  tempDaySeries = 4
+                }else if (tempDay === 'fri'){
+                  tempDaySeries = 5
+                }else{
+                  tempDaySeries = 6
+                }
               let tempTime = tempArray[j].slice(3)
-              console.log(tempTime, tempDay)
+                if (tempTime === 'ZeroToOneHundred'){
+                  tempTimeSeries = 0
+                }else if (tempTime === 'OneToTwoHundred'){
+                  tempTimeSeries = 1
+                }else if (tempTime === 'TwoToThreeHundred'){
+                  tempTimeSeries = 2
+                }else if (tempTime === 'ThreeToFourHundred'){
+                  tempTimeSeries = 3
+                }else if (tempTime === 'FourToFiveHundred'){
+                  tempTimeSeries = 4
+                }else if (tempTime === 'FiveToSixHundred'){
+                  tempTimeSeries = 5
+                }else if (tempTime === 'SixToSevenHundred'){
+                  tempTimeSeries = 6
+                }else if (tempTime === 'SevenToEightHundred'){
+                  tempTimeSeries = 7
+                }else if (tempTime === 'EightToNineHundred'){
+                  tempTimeSeries = 8
+                }else if (tempTime === 'NineToTenHundred'){
+                  tempTimeSeries = 9
+                }else if (tempTime === 'TenToElevenHundred'){
+                  tempTimeSeries = 10
+                }else if (tempTime === 'ElevenToTwelveHundred'){
+                  tempTimeSeries = 11
+                }else if (tempTime === 'TwelveToThirteenHundred'){
+                  tempTimeSeries = 12
+                }else if (tempTime === 'ThirteenToFourteenHundred'){
+                  tempTimeSeries = 13
+                }else if (tempTime === 'FourteenToFifteenHundred'){
+                  tempTimeSeries = 14
+                }else if (tempTime === 'FifteenToSixteenHundred'){
+                  tempTimeSeries = 15
+                }else if (tempTime === 'SixteenToSeventeenHundred'){
+                  tempTimeSeries = 16
+                }else if (tempTime === 'SeventeenToEighteenHundred'){
+                  tempTimeSeries = 17
+                }else if (tempTime === 'EighteenToNineteenHundred'){
+                  tempTimeSeries = 18
+                }else if (tempTime === 'NineteenToTwentyHundred'){
+                  tempTimeSeries = 19
+                }else if (tempTime === 'TwentyToTwentyoneHundred'){
+                  tempTimeSeries = 20
+                }else if (tempTime === 'TwentyoneToTwentytwoHundred'){
+                  tempTimeSeries = 21
+                }else if (tempTime === 'TwentytwoToTwentythreeHundred'){
+                  tempTimeSeries = 22
+                }else{
+                  tempTimeSeries = 23
+                }
             } else {
-              tempCount = j.length
-            }
+              tempCountSeries = tempArray[j].length
+              }
           }
+          tempEntry.push(tempTimeSeries)
+          tempEntry.push(tempDaySeries)
+          tempEntry.push(tempCountSeries)
+          seriesData.push(tempEntry)
         }
+        console.log(seriesData)
     }
 
       let dummyData= [1, 2, 3, 4]
