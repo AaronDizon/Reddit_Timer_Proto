@@ -390,10 +390,26 @@ const Info = (props) => {
     const createSeries = (param) => {
       let objectArray = Object.entries(param)
       console.log(objectArray.length)
-      // let newSeries = []
-      //   for (let i = 0; i < param.length; ++i){
-      //     console.log('working')
-      //   }
+      let newSeries = []
+        for (let i = 0; i < objectArray.length; ++i){
+          let tempTime
+          let tempDay
+          let tempCount
+
+          let tempEntry
+          //console.log(objectArray[i])
+          let tempArray = objectArray[i]
+          for (let j = 0; j < tempArray.length; ++j){
+            //console.log(typeof tempArray[j])
+            if (typeof tempArray[j] === 'string') {
+              let tempDay = tempArray[j].slice(0,3)
+              let tempTime = tempArray[j].slice(3)
+              console.log(tempTime, tempDay)
+            } else {
+              tempCount = j.length
+            }
+          }
+        }
     }
 
       let dummyData= [1, 2, 3, 4]
