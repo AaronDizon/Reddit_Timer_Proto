@@ -1,6 +1,10 @@
 import { SearchContext } from '../context/SearchContext'
 import styles from '../Styling/Info.module.css'
 import {React, useState, useContext, useEffect } from 'react'
+import {Highcharts}from 'highcharts';
+import HighchartsReact from 'highcharts-react-official';
+import HighchartsHeatmap from 'highcharts/modules/heatmap';
+import Heatmap from './Heatmap';
 
 const Info = (props) => {
 
@@ -9,6 +13,7 @@ const Info = (props) => {
 
     const [data, setData] = useState(props.data)
     const [parsedData, setParsedData] = useState()
+    const [heatmapData, setHeatmapData] = useState([])
 
     const chartObject = {
 
@@ -204,28 +209,7 @@ const Info = (props) => {
     useEffect(()=> {
       //console.log(values)
       parseData(data)
-      // let objectOfArrays = {}
 
-      // objectOfArrays.subArray1 = [1, 2, 3]
-      // objectOfArrays.subArray2 = [4, 5, 6]
-      // objectOfArrays.subArray3 = [7, 8, 9]
-
-      // objectOfArrays.subArray3.push(10)
-      // console.log(objectOfArrays.subArray3)
-      // // console.log(objectOfArrays)
-      // if (objectOfArrays.subArray1) {
-      //   console.log(true)
-      // }
-      // else {
-      //   console.log(false)
-      // }
-      // let objLength = Object.keys(objectOfArrays)
-      // console.log(objLength.length)
-     
-
-      // for (let key in objectOfArrays) {
-      //   console.log(key)
-      // }
       console.log(values)
       createSeries(values)
     }, [])
@@ -478,18 +462,16 @@ const Info = (props) => {
           seriesData.push(tempEntry)
         }
         console.log(seriesData)
+        setHeatmapData(seriesData)
+
     }
 
-      let dummyData= [1, 2, 3, 4]
-    // console.log(values)
+
+
+
   return (
     <div className={styles.infoContainer}>
-          {/* {dummyData.map((count, i) => (
-            
-              <h1>Hello</h1>
-              
-            ))} */}
-      <p>Info</p>
+          <Heatmap heatmapData={heatmapData}/>
     </div>
   )
 }
