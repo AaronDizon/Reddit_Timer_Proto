@@ -387,70 +387,71 @@ const Info = (props) => {
           for (let j = 0; j < tempArray.length; ++j){
             if (typeof tempArray[j] === 'string') {
               let tempDay = tempArray[j].slice(0,3)
-                if (tempDay === 'sun') {
-                  tempDaySeries = 0
-                }else if (tempDay === 'mon'){
-                  tempDaySeries = 1
-                }else if (tempDay === 'tue'){
-                  tempDaySeries = 2
-                }else if (tempDay === 'wed'){
-                  tempDaySeries = 3
-                }else if (tempDay === 'thu'){
-                  tempDaySeries = 4
-                }else if (tempDay === 'fri'){
-                  tempDaySeries = 5
-                }else{
-                  tempDaySeries = 6
-                }
+                // if (tempDay === 'sun') {
+                //   tempDaySeries = 0
+                // }else if (tempDay === 'mon'){
+                //   tempDaySeries = 1
+                // }else if (tempDay === 'tue'){
+                //   tempDaySeries = 2
+                // }else if (tempDay === 'wed'){
+                //   tempDaySeries = 3
+                // }else if (tempDay === 'thu'){
+                //   tempDaySeries = 4
+                // }else if (tempDay === 'fri'){
+                //   tempDaySeries = 5
+                // }else{
+                //   tempDaySeries = 6
+                // }
+                tempDaySeries = tempDay.toUpperCase()
               let tempTime = tempArray[j].slice(3)
                 if (tempTime === 'ZeroToOneHundred'){
-                  tempTimeSeries = 0
+                  tempTimeSeries = "0000-0100"
                 }else if (tempTime === 'OneToTwoHundred'){
-                  tempTimeSeries = 1
+                  tempTimeSeries = "0100-0200"
                 }else if (tempTime === 'TwoToThreeHundred'){
-                  tempTimeSeries = 2
+                  tempTimeSeries = "0200-0300"
                 }else if (tempTime === 'ThreeToFourHundred'){
-                  tempTimeSeries = 3
+                  tempTimeSeries = "0300-0400"
                 }else if (tempTime === 'FourToFiveHundred'){
-                  tempTimeSeries = 4
+                  tempTimeSeries = "0400-0500"
                 }else if (tempTime === 'FiveToSixHundred'){
-                  tempTimeSeries = 5
+                  tempTimeSeries = "0500-0600"
                 }else if (tempTime === 'SixToSevenHundred'){
-                  tempTimeSeries = 6
+                  tempTimeSeries = "0600-0700"
                 }else if (tempTime === 'SevenToEightHundred'){
-                  tempTimeSeries = 7
+                  tempTimeSeries = "0700-0800"
                 }else if (tempTime === 'EightToNineHundred'){
-                  tempTimeSeries = 8
+                  tempTimeSeries = "0800-0900"
                 }else if (tempTime === 'NineToTenHundred'){
-                  tempTimeSeries = 9
+                  tempTimeSeries = "0900-1000"
                 }else if (tempTime === 'TenToElevenHundred'){
-                  tempTimeSeries = 10
+                  tempTimeSeries = "1000-1100"
                 }else if (tempTime === 'ElevenToTwelveHundred'){
-                  tempTimeSeries = 11
+                  tempTimeSeries = "1100-1200"
                 }else if (tempTime === 'TwelveToThirteenHundred'){
-                  tempTimeSeries = 12
+                  tempTimeSeries = "1200-1300"
                 }else if (tempTime === 'ThirteenToFourteenHundred'){
-                  tempTimeSeries = 13
+                  tempTimeSeries = "1300-1400" 
                 }else if (tempTime === 'FourteenToFifteenHundred'){
-                  tempTimeSeries = 14
+                  tempTimeSeries = "1400-1500"
                 }else if (tempTime === 'FifteenToSixteenHundred'){
-                  tempTimeSeries = 15
+                  tempTimeSeries = "1500-1600"
                 }else if (tempTime === 'SixteenToSeventeenHundred'){
-                  tempTimeSeries = 16
+                  tempTimeSeries = "1600-1700"
                 }else if (tempTime === 'SeventeenToEighteenHundred'){
-                  tempTimeSeries = 17
+                  tempTimeSeries = "1700-1800"
                 }else if (tempTime === 'EighteenToNineteenHundred'){
-                  tempTimeSeries = 18
+                  tempTimeSeries = "1800-1900"
                 }else if (tempTime === 'NineteenToTwentyHundred'){
-                  tempTimeSeries = 19
+                  tempTimeSeries = "1900-2000"
                 }else if (tempTime === 'TwentyToTwentyoneHundred'){
-                  tempTimeSeries = 20
+                  tempTimeSeries = "2000-2100"
                 }else if (tempTime === 'TwentyoneToTwentytwoHundred'){
-                  tempTimeSeries = 21
+                  tempTimeSeries = "2100-2200"
                 }else if (tempTime === 'TwentytwoToTwentythreeHundred'){
-                  tempTimeSeries = 22
+                  tempTimeSeries = "2200-2300"
                 }else{
-                  tempTimeSeries = 23
+                  tempTimeSeries = "2300-2400"
                 }
             } else {
               tempCountSeries = tempArray[j].length
