@@ -1,9 +1,6 @@
 import { SearchContext } from '../context/SearchContext'
 import styles from '../Styling/Info.module.css'
 import {React, useState, useContext, useEffect } from 'react'
-import {Highcharts}from 'highcharts';
-import HighchartsReact from 'highcharts-react-official';
-import HighchartsHeatmap from 'highcharts/modules/heatmap';
 import Heatmap from './Heatmap';
 
 const Info = (props) => {
@@ -378,30 +375,17 @@ const Info = (props) => {
       let objectArray = Object.entries(param)
       console.log(objectArray.length)
         for (let i = 0; i < objectArray.length; ++i){
-          let tempTimeSeries
           let tempDaySeries
+          let tempTimeSeries
           let tempCountSeries
 
-          let tempEntry = []
+          let tempEntry = {
+        
+          }
           let tempArray = objectArray[i]
           for (let j = 0; j < tempArray.length; ++j){
             if (typeof tempArray[j] === 'string') {
               let tempDay = tempArray[j].slice(0,3)
-                // if (tempDay === 'sun') {
-                //   tempDaySeries = 0
-                // }else if (tempDay === 'mon'){
-                //   tempDaySeries = 1
-                // }else if (tempDay === 'tue'){
-                //   tempDaySeries = 2
-                // }else if (tempDay === 'wed'){
-                //   tempDaySeries = 3
-                // }else if (tempDay === 'thu'){
-                //   tempDaySeries = 4
-                // }else if (tempDay === 'fri'){
-                //   tempDaySeries = 5
-                // }else{
-                //   tempDaySeries = 6
-                // }
                 tempDaySeries = tempDay.toUpperCase()
               let tempTime = tempArray[j].slice(3)
                 if (tempTime === 'ZeroToOneHundred'){
@@ -457,12 +441,12 @@ const Info = (props) => {
               tempCountSeries = tempArray[j].length
               }
           }
-          tempEntry.push(tempTimeSeries)
-          tempEntry.push(tempDaySeries)
-          tempEntry.push(tempCountSeries)
+          tempEntry.day = tempDaySeries
+          tempEntry.time = tempTimeSeries
+          tempEntry.count = tempCountSeries
           seriesData.push(tempEntry)
         }
-        console.log(seriesData)
+        //console.log(seriesData)
         setHeatmapData(seriesData)
 
     }
