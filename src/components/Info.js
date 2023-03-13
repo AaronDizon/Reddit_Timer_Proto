@@ -11,6 +11,7 @@ const Info = (props) => {
     const [data, setData] = useState(props.data)
     const [parsedData, setParsedData] = useState()
     const [heatmapData, setHeatmapData] = useState([])
+    const [loaded, setLoaded] = useState(false)
 
     const chartObject = {
 
@@ -209,6 +210,8 @@ const Info = (props) => {
 
       console.log(values)
       createSeries(values)
+      setHeatmapData(seriesData)
+      console.log(heatmapData)
     }, [])
 
 
@@ -373,7 +376,7 @@ const Info = (props) => {
     const createSeries = (param) => {
       seriesData = []
       let objectArray = Object.entries(param)
-      console.log(objectArray.length)
+      // console.log(objectArray.length)
         for (let i = 0; i < objectArray.length; ++i){
           let tempDaySeries
           let tempTimeSeries
@@ -445,18 +448,16 @@ const Info = (props) => {
           tempEntry.time = tempTimeSeries
           tempEntry.count = tempCountSeries
           seriesData.push(tempEntry)
+          setLoaded(true)
         }
         //console.log(seriesData)
-        setHeatmapData(seriesData)
+        
 
     }
 
-
-
-
   return (
     <div className={styles.infoContainer}>
-          <Heatmap heatmapData={heatmapData}/>
+          {loaded === false? <p>Almost There!</p>: <Heatmap heatmapData={heatmapData}/>}
     </div>
   )
 }
