@@ -1,5 +1,5 @@
 import { SearchContext } from '../context/SearchContext'
-import styles from '../Styling/Info.module.css'
+import styles from '../Styling/Heatmap.module.css'
 import {React, useState, useContext, useEffect, useRef } from 'react'
 import * as d3 from 'd3'
 
@@ -8,10 +8,12 @@ import * as d3 from 'd3'
 
 const Heatmap = (props) => {
 
-  const data = [25, 45, 60]
   const svgRef = useRef()
 
   const [mapData, setMapData] = useState(props.heatmapData)
+  const [dayTip, setDayTip] = useState()
+  const [timeTip, setTimeTip] = useState()
+  const [countTip, setCountTip] = useState()
 
   console.log('child render')
 
@@ -68,43 +70,65 @@ const Heatmap = (props) => {
       .style("padding", "5px")
 
     // Three function that change the tooltip when user hover / move / leave a cell
-    const mouseover = function(event,d) {
-      tooltip.style("opacity", 1)
+    const mouseover = function(event, d) {
+      // tooltip.style("opacity", 1)
+      setDayTip(d.day)
+      setTimeTip(d.time)
+      setCountTip(d.count)
     }
-    const mousemove = function(event,d) {
+    const mousemove = function(event, d) {
       tooltip
-        .html("The exact value of<br>this cell is: " + d.value)
+        .html("The exact value of<br>this cell is: " + d.count)
         .style("left", (event.x)/2 + "px")
         .style("top", (event.y)/2 + "px")
     }
     const mouseleave = function(d) {
-      tooltip.style("opacity", 0)
+      // tooltip.style("opacity", 0)
+      setDayTip('')
+      setTimeTip('')
+      setCountTip('')
     }
 
     // Build color scale
     var myColor = d3.scaleLinear()
-      .range(["white", "orange"])
+      .range(["white", "#FF5700"])
       .domain([1,10])
 
     svg.selectAll()
-    .data(mapData, function(d) {return d.time+':'+d.day;})
-    .enter()
-    .append("rect")
-      .attr("x", function(d) { return x(d.time) })
-      .attr("y", function(d) { return y(d.day) })
-      .attr("width", x.bandwidth() )
-      .attr("height", y.bandwidth() )
-      .style("fill", function(d) { return myColor(d.count)} )
-    .on("mouseover", mouseover)
-    .on("mousemove", mousemove)
-    .on("mouseleave", mouseleave)
+      .data(mapData, function(d) {return d.time+':'+d.day;})
+      .enter()
+      .append("rect")
+        .attr("x", function(d) { return x(d.time) })
+        .attr("y", function(d) { return y(d.day) })
+        .attr("width", x.bandwidth() )
+        .attr("height", y.bandwidth() )
+        .style("fill", function(d) { return myColor(d.count)} )
+      .on("mouseover", mouseover)
+      .on("mousemove", mousemove)
+      .on("mouseleave", mouseleave)
+
+    d3.select("#rectangle")
+      .on("mouseover", mouseover)
+      .on("mousemove", mousemove)
+      .on("mouseleave", mouseleave)
+
 
   }, [])
 
   return (
-    <div>
-      <svg ref={svgRef}>
-      </svg>
+    <div className={styles.container}>
+      <div id="my_dataviz">
+        <svg ref={svgRef}></svg>
+        {dayTip === '' ? <p></p> :
+        <div className={styles.toolTip}>
+          <div className={styles.tipContainer}>
+            <p> Day: {dayTip}</p>
+            <p >Time of Day: {timeTip}</p>
+            <p>Number of Posts: {countTip}</p>
+          </div>
+        </div>
+        }
+      </div>
     </div>
   )
 }

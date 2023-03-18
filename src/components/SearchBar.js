@@ -43,11 +43,6 @@ const SearchBar = () => {
                             setData(infoArray)
                             
                         }
-                        //console.log('info array', infoArray)
-                        
-                        // for (let j = 0; j < 100; j++) {
-                            //     // setInfoSearched(...infoSearched, response.data.data.children[j].data)
-                            // }
                             tempString = response.data.data.after
                            
                             

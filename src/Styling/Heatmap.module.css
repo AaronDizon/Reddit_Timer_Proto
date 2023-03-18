@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+}
+
+.toolTip {
+    /* display: inline; */
+    /* border-style: solid; */
+    margin-top: 10vmin
+}
+
+.tipContainer {
+    display: inline;
+    border-style: solid;
+}
