@@ -13,6 +13,7 @@ const SearchBar = () => {
     const [description, setDescription] = useState('')
     const [loaded, setLoaded] = useState(false)
     const [data, setData] = useState([])
+    const [errorStatus, setErrorStatus] = useState(false)
 
     const postsPerRequest = 100
     const maxPostsToFetch = 500
@@ -51,12 +52,15 @@ const SearchBar = () => {
             setLoaded(true)
             //console.log(infoArray)
         } catch (error) {
+            setLoaded(true)
+            setErrorStatus(true)
             console.log(error)
         }
     }
 
     const postForm = (e) => {
         setLoaded(false)
+        setErrorStatus(false)
         e.preventDefault()
         getInfo()
         setInfoSearchStatus(true)
@@ -67,11 +71,12 @@ const SearchBar = () => {
         <p className={styles.title}>Search Bar</p>
         <form className={styles.form} onSubmit={postForm}>
             <input value={description} onChange={(e)=>{setDescription(e.target.value)}}/>
-            <input className={styles.submitButton} type='submit' value= 'Post' />
+            <input className={styles.submitButton} type='submit' value= 'Search' />
             {infoSearchStatus === false ? <p>Hello</p> : 
                 loaded === false? 
                     <p>loading...</p> :
-                    <Info data={data}/>
+                        errorStatus === false? <Info data={data}/> :
+                        <p>There is an error</p>
             }
         </form>
 
