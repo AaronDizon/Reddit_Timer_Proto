@@ -9,16 +9,26 @@ import Info from './components/Info';
 
 function App() {
 
-  const {infoSearchStatusState, infoSearchedState} = useContext(SearchContext)
+  const {infoSearchStatusState, loadedState, errorState, dataState} = useContext(SearchContext)
   const [infoSearchStatus, setInfoSearchStatus] = infoSearchStatusState 
-  const [infoSearched, setInfoSearched] =infoSearchedState
+  const [loaded, setLoaded] = loadedState
+  const [error, setError] = errorState
+  const [data, setData] = dataState
 
   return (
     <div className="App">
-      
+      <div>
         <Title />
         <SearchBar />
-        
+      </div>
+      <div>
+      {infoSearchStatus === false ? <p>Hello</p> : 
+                loaded === false? 
+                    <p>loading...</p> :
+                        error === false? <Info data={data}/> :
+                        <p>There is an error</p>
+            }
+      </div>  
       
     </div> 
   );

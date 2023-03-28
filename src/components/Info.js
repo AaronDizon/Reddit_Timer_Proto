@@ -1,14 +1,14 @@
+import {React, useState, useContext, useEffect } from 'react'
 import { SearchContext } from '../context/SearchContext'
 import styles from '../Styling/Info.module.css'
-import {React, useState, useContext, useEffect } from 'react'
 import Heatmap from './Heatmap';
 
 const Info = (props) => {
 
-    const {infoSearchedState} = useContext(SearchContext)
-    const [ infoSearched, setInfoSearched] = infoSearchedState
+    const {dataState} = useContext(SearchContext)
+    const [ data, setData] = dataState
 
-    const [data, setData] = useState(props.data)
+
     const [parsedData, setParsedData] = useState()
     const [heatmapData, setHeatmapData] = useState([])
     const [loaded, setLoaded] = useState(false)

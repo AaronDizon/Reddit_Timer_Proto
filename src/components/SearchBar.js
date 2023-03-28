@@ -6,14 +6,13 @@ import styles from '../Styling/SearchBar.module.css'
 
 const SearchBar = () => {
 
-    const {infoSearchedState, infoSearchStatusState} = useContext(SearchContext)
-    const [infoSearchStatus, setInfoSearchStatus] = infoSearchStatusState
-    const [infoSearched, setInfoSearched] = infoSearchedState
+    const {infoSearchStatusState, loadedState, errorState, dataState} = useContext(SearchContext)
+        const [infoSearchStatus, setInfoSearchStatus,] = infoSearchStatusState
+        const [loaded, setLoaded] = loadedState
+        const [error, setError] = errorState
+        const [data, setData] = dataState
 
     const [description, setDescription] = useState('')
-    const [loaded, setLoaded] = useState(false)
-    const [data, setData] = useState([])
-    const [errorStatus, setErrorStatus] = useState(false)
 
     const postsPerRequest = 100
     const maxPostsToFetch = 500
@@ -53,14 +52,14 @@ const SearchBar = () => {
             //console.log(infoArray)
         } catch (error) {
             setLoaded(true)
-            setErrorStatus(true)
+            setError(true)
             console.log(error)
         }
     }
 
     const postForm = (e) => {
         setLoaded(false)
-        setErrorStatus(false)
+        setError(false)
         e.preventDefault()
         getInfo()
         setInfoSearchStatus(true)
@@ -68,16 +67,10 @@ const SearchBar = () => {
 
   return (
     <div>
-        <p className={styles.title}>Search Bar</p>
         <form className={styles.form} onSubmit={postForm}>
             <input value={description} onChange={(e)=>{setDescription(e.target.value)}}/>
             <input className={styles.submitButton} type='submit' value= 'Search' />
-            {infoSearchStatus === false ? <p>Hello</p> : 
-                loaded === false? 
-                    <p>loading...</p> :
-                        errorStatus === false? <Info data={data}/> :
-                        <p>There is an error</p>
-            }
+
         </form>
 
     </div>
