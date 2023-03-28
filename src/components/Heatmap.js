@@ -15,8 +15,6 @@ const Heatmap = (props) => {
   const [timeTip, setTimeTip] = useState()
   const [countTip, setCountTip] = useState()
 
-  console.log('child render')
-
   useEffect(()=> {
     
     console.log(mapData)
@@ -89,6 +87,13 @@ const Heatmap = (props) => {
       setCountTip('')
     }
 
+    const click = function(d) {
+      setDayTip(d.day)
+      setTimeTip(d.time)
+      setCountTip(d.count)
+      console.log("click occured", d.day)
+    }
+
     // Build color scale
     var myColor = d3.scaleLinear()
       .range(["white", "#FF5700"])
@@ -106,12 +111,7 @@ const Heatmap = (props) => {
       .on("mouseover", mouseover)
       .on("mousemove", mousemove)
       .on("mouseleave", mouseleave)
-
-    d3.select("#rectangle")
-      .on("mouseover", mouseover)
-      .on("mousemove", mousemove)
-      .on("mouseleave", mouseleave)
-
+      // .on("click", click)
 
   }, [])
 

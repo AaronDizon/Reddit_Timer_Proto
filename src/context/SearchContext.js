@@ -6,7 +6,7 @@ const SearchProvider = ({children}) => {
 
     const [infoSearchStatus, setInfoSearchStatus] = useState(false);
     const [infoSearched, setInfoSearched] = useState([])
-    const [test, setTest] = useState('test')
+    const [description, setDescription] = useState('')
     const [loaded, setLoaded] = useState(false)
     const [error, setError] = useState(false)
     const [data, setData] = useState([])
@@ -14,7 +14,7 @@ const SearchProvider = ({children}) => {
     const state = {
         infoSearchStatusState: [infoSearchStatus, setInfoSearchStatus],
         infoSearchedState: [infoSearched, setInfoSearched], 
-        testState: [test, setTest],
+        descriptionState: [description, setDescription],
         loadedState: [loaded, setLoaded],
         errorState: [error, setError],
         dataState: [data, setData]

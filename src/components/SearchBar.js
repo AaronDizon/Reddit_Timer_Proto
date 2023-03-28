@@ -6,13 +6,13 @@ import styles from '../Styling/SearchBar.module.css'
 
 const SearchBar = () => {
 
-    const {infoSearchStatusState, loadedState, errorState, dataState} = useContext(SearchContext)
+    const {infoSearchStatusState, descriptionState, loadedState, errorState, dataState} = useContext(SearchContext)
         const [infoSearchStatus, setInfoSearchStatus,] = infoSearchStatusState
+        const [description, setDescription] = descriptionState
         const [loaded, setLoaded] = loadedState
         const [error, setError] = errorState
         const [data, setData] = dataState
 
-    const [description, setDescription] = useState('')
 
     const postsPerRequest = 100
     const maxPostsToFetch = 500
@@ -21,7 +21,7 @@ const SearchBar = () => {
     let infoArray = []
 
     const getInfo = async (e) => {
-        try {
+        try { 
             let tempString = ''
 
             for(let i = 0; i < maxRequests; i++){
@@ -68,8 +68,8 @@ const SearchBar = () => {
   return (
     <div>
         <form className={styles.form} onSubmit={postForm}>
-            <input value={description} onChange={(e)=>{setDescription(e.target.value)}}/>
             <input className={styles.submitButton} type='submit' value= 'Search' />
+            <input value={description} onChange={(e)=>{setDescription(e.target.value)}}/>
 
         </form>
 

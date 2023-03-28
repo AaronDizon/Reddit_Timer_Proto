@@ -1,9 +1,29 @@
 .topBar {
     display: flex; 
     align-items: flex-end;
-    justify-content: space-evenly;
-    gap: 25vmin;
+    flex-wrap: wrap;
     background-color: #FF5700;
     padding: 1vmin;
     padding-bottom: 2vmin;
+}
+
+.topBar > *:nth-child(1) {
+    flex: 1 1 40%
+}
+
+.topBar > *:nth-child(2) {
+    flex: 1 1 60%
+}
+
+.header {
+    display: flex;
+}
+
+.header :hover {
+    cursor: default
+}
+
+.searchBar {
+    display: flex;
+ 
 }
