@@ -1,0 +1,9 @@
+.topBar {
+    display: flex; 
+    align-items: flex-end;
+    justify-content: space-evenly;
+    gap: 25vmin;
+    background-color: #FF5700;
+    padding: 1vmin;
+    padding-bottom: 2vmin;
+}

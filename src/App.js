@@ -1,7 +1,6 @@
-import {useEffect, useContext} from 'react';
-import {Routes, Route, Navigate} from 'react-router-dom'
-import axios from 'axios'
+import {useContext} from 'react';
 import { SearchContext } from './context/SearchContext';
+import styles from './Styling/App.module.css'
 import './App.css';
 import Title from './components/Title';
 import SearchBar from './components/SearchBar';
@@ -17,11 +16,11 @@ function App() {
 
   return (
     <div className="App">
-      <div>
+      <div className={styles.topBar}>
         <Title />
         <SearchBar />
       </div>
-      <div>
+      <div className="body">
       {infoSearchStatus === false ? <p>Hello</p> : 
                 loaded === false? 
                     <p>loading...</p> :
