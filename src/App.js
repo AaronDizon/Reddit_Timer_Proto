@@ -26,19 +26,19 @@ function App() {
       </div>
       <div className="body">
       {infoSearchStatus === false ? 
-      <div>
-      <p>Welcome to Reddit Timer!</p>
-      <p>For the best results, type the subreddit exactly how it is on the reddit website.
-      </p> 
+      <div className={styles.bodyDescription}>
+        <p className={styles.passage}>Welcome to Reddit Timer!</p>
+        <p className={styles.passage}>For the best results, type the subreddit exactly how it is on the reddit website.
+        </p> 
       </div>
       : 
                 loaded === false? 
-                    <p>loading...</p> :
+                    <p className={styles.loading}>loading...</p> :
                         error === false? <Info data={data}/> :
-                        <div>
-                        <p>An error as occured!</p>
-                        <p>Check for spelling</p>
-                        <p>If you typed your subreddit of choice correctly, then the number of posts on that subreddit is too small of a sample size :(</p>
+                        <div className={styles.bodyDescription}>
+                          <p className={styles.passage}>An error as occured!</p>
+                          <p className={styles.passage}>Check for spelling</p>
+                          <p className={styles.passage}s>If you typed your subreddit of choice correctly, then the number of posts on that subreddit is too small of a sample size :(</p>
                         </div>
             }
       </div>  

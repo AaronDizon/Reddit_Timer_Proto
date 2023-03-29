@@ -1,3 +1,25 @@
-.title {
-    color: purple
+.form {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 5vmin;
+    width: 500px;
+}
+
+.submitButton {
+    margin: 5px 5px 5px 10px;
+}
+
+.clearButton {
+    margin: 5px 10px 5px 10px;
+}
+
+.input {
+    font-size: 18px;
+    height: 30px;
+    width: 440px;
+    border: none;
+    outline: none;
+    margin: 0 0 0 0;
+    border-radius: 8vmin;
 }

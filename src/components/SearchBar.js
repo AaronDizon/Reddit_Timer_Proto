@@ -3,6 +3,8 @@ import { SearchContext } from '../context/SearchContext'
 import axios from 'axios'
 import Info from './Info'
 import styles from '../Styling/SearchBar.module.css'
+import { IoSearchOutline } from "react-icons/io5";
+import { MdClear } from "react-icons/md";
 
 const SearchBar = () => {
 
@@ -65,14 +67,18 @@ const SearchBar = () => {
         setInfoSearchStatus(true)
     }
 
+    const clearDescription = () => {
+        setDescription('')
+    }
+
   return (
     <div>
         <form className={styles.form} onSubmit={postForm}>
-            <input className={styles.submitButton} type='submit' value= 'Search' />
-            <input value={description} onChange={(e)=>{setDescription(e.target.value)}}/>
+            <div className={styles.submitButton} onClick={postForm}> <IoSearchOutline size="25px"/> </div>
+            <input className={styles.input} value={description} placeholder="Search" onChange={(e)=>{setDescription(e.target.value)}}/>
+            {description != '' ?  <MdClear onClick = {clearDescription} size="25px" className={styles.clearButton}/>: <p />}
 
         </form>
-
     </div>
   )
 }

@@ -2,17 +2,18 @@
     display: flex; 
     align-items: flex-end;
     flex-wrap: wrap;
+    justify-content: center;
     background-color: #FF5700;
     padding: 1vmin;
     padding-bottom: 2vmin;
 }
 
 .topBar > *:nth-child(1) {
-    flex: 1 1 40%
+    flex: 1 1 38%
 }
 
 .topBar > *:nth-child(2) {
-    flex: 1 1 60%
+    flex: 1 1 62%
 }
 
 .header {
@@ -26,4 +27,19 @@
 .searchBar {
     display: flex;
  
+}
+
+.bodyDescription{
+    margin-top: 100px;
+}
+
+.passage {
+    margin:0 auto;
+    font-size: 20px;
+    margin-bottom: 50px;
+}
+
+.loading {
+    margin-top: 100px;
+    font-size: 20px;
 }
