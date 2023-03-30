@@ -11,7 +11,7 @@ const Heatmap = (props) => {
   const svgRef = useRef()
 
   const [mapData, setMapData] = useState(props.heatmapData)
-  const [dayTip, setDayTip] = useState()
+  const [dayTip, setDayTip] = useState('')
   const [timeTip, setTimeTip] = useState()
   const [countTip, setCountTip] = useState()
 
