@@ -1,10 +1,12 @@
-import {useContext} from 'react';
+import {useState, useContext} from 'react';
 import { SearchContext } from './context/SearchContext';
 import styles from './Styling/App.module.css'
 import './App.css';
 import Title from './components/Title';
 import SearchBar from './components/SearchBar';
 import Info from './components/Info';
+import FadeLoader from "react-spinners/FadeLoader";
+import Footer from './components/Footer';
 
 function App() {
 
@@ -14,8 +16,10 @@ function App() {
   const [error, setError] = errorState
   const [data, setData] = dataState
 
+  const [color, setColor] = useState('orange')
+
   return (
-    <div className="App">
+    <div className={styles.container}>
       <div className={styles.topBar}>
         <div className={styles.header}>
           <Title />
@@ -33,7 +37,13 @@ function App() {
       </div>
       : 
                 loaded === false? 
-                    <p className={styles.loading}>loading...</p> :
+                <div className={styles.loaderContainer}>
+                <FadeLoader className={styles.loading}
+                color={color}
+                size={150}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+              /></div>:
                         error === false? <Info data={data}/> :
                         <div className={styles.bodyDescription}>
                           <p className={styles.passage}>An error as occured!</p>
@@ -42,7 +52,8 @@ function App() {
                         </div>
             }
       </div>  
-      
+      <hr />
+      <Footer />
     </div> 
   );
 }

@@ -1,3 +1,10 @@
+
+.container{ 
+    text-align: center;
+    min-height: 100vh;
+    display: flex; 
+    flex-direction: column;
+}
 .topBar {
     display: flex; 
     align-items: flex-end;
@@ -31,6 +38,14 @@
 
 .bodyDescription{
     margin-top: 100px;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+    flex: 1;
+}
+
+.content-wrap{
+    flex: 1;
 }
 
 .passage {
@@ -39,7 +54,12 @@
     margin-bottom: 50px;
 }
 
-.loading {
-    margin-top: 100px;
-    font-size: 20px;
+.loaderContainer{
+    margin-top: 10em;
+    display: flex;
+    justify-content: center;
+}
+
+.footerContainer{
+    margin-top: auto;
 }
