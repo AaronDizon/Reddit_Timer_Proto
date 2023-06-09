@@ -1,5 +1,8 @@
 import React from 'react'
 import styles from '../Styling/Footer.module.css'
+import { GoMarkGithub } from "react-icons/go";
+import { BsLinkedin } from "react-icons/bs"
+import { BsPersonFill } from "react-icons/bs"
 
 
 const Footer = () => {
@@ -7,12 +10,12 @@ const Footer = () => {
 
       <div className={styles.container}>
         <div className={styles.social}>
-            <p className={styles.socialIcon}>Linkedin</p>
-            <p className={styles.socialIcon}>Github</p>
-            <p className={styles.socialIcon}>Personal</p>
-          </div>
-          <p className={styles.emailText}>Email: Iamartindizon@gmail.com</p>
-          <p className={styles.trademarkText}>TM: AaronDizon</p>
+            <a href={'https://github.com/AaronDizon'}className={styles.socialIcon}><GoMarkGithub size='4vmin' color='#F5F5F5'/></a>
+            <a href={'https://www.linkedin.com/in/aaron-dizon-2ab738227/'}className={styles.socialIcon}><BsLinkedin size='4vmin' color='#F5F5F5'/></a>
+            <a href={'https://idyllic-semolina-feb97e.netlify.app/'}className={styles.socialIcon}><BsPersonFill size='4vmin' color='#F5F5F5'/></a>
+        </div>
+        <p className={styles.emailText}>Email: Iamartindizon@gmail.com</p>
+        <p className={styles.trademarkText}>TM: AaronDizon</p>
       </div>
 
 
