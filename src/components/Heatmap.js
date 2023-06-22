@@ -5,7 +5,6 @@ import * as d3 from 'd3'
 
 
 
-
 const Heatmap = (props) => {
 
   const svgRef = useRef()
