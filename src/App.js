@@ -24,9 +24,9 @@ function App() {
         <div className={styles.header}>
           <Title />
         </div>
-        {/* <div className={styles.searchBar}>
+        <div className={styles.searchBar}>
           <SearchBar />
-        </div> */}
+        </div>
       </div>
       <div className="body">
       {infoSearchStatus === false ? 
